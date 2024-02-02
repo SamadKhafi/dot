@@ -10,6 +10,9 @@ return {
         local treesitter = require 'nvim-treesitter.configs'
         local commentstring = require 'ts_context_commentstring'
 
+        -- use bash treesitter parser for zsh
+        vim.treesitter.language.register('bash', 'zsh')
+
         treesitter.setup {
             -- enable syntax highlighting
             highlight = { enable = true, additional_vim_regex_highlighting = false },
