@@ -1,0 +1,20 @@
+commands:
+  - mkdir:
+      destination: "{{project}}"
+  - mkdir:
+      destination: "{{project}}/build"
+  - copy:
+      source: project
+      destination: "{{project}}"
+      overwrite: true
+  - template:
+      source: templates/CMakeLists.txt.hbs
+      destination: "{{project}}/CMakeLists.txt"
+      overwrite: true
+  - exec:
+      commands:
+        - 'git init "{{project}}"'
+        - 'git -C "{{project}}" add .'
+        - 'git -C "{{project}}" commit -m "initial commit"'
+        - 'cmake -S "{{project}}" -B "{{project}}/build"'
+      stdout: false

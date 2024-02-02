@@ -1,0 +1,11 @@
+commands:
+  - mkdir:
+      destination: "{{project}}"
+  - mkdir:
+      destination: "{{project}}/build/Debug"
+  - mkdir:
+      destination: "{{project}}/build/Release"
+  - copy:
+      source: project
+      destination: "{{project}}"
+      overwrite: true

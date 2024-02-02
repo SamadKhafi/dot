@@ -1,0 +1,25 @@
+CompileFlags:
+  CompilationDatabase: build/
+  Add: [-Wno-unknown-warning-option]
+  Remove: [-f*]
+Diagnostics:
+  ClangTidy:
+    Add:
+      - bugprone-*
+      - google-*
+      - llvm-*
+      - modernize-*
+      - performance-*
+      - readability-*
+    Remove:
+      - bugprone-easily-swappable-parameters
+      - google-readability-todo
+      - performance-no-int-to-ptr
+      - readability-identifier-length
+      - readability-magic-numbers
+    CheckOptions:
+      readability-identifier-naming: lower_case
+      readability-duplicate-include: true
+  UnusedIncludes: Strict
+Hover:
+  ShowAKA: true

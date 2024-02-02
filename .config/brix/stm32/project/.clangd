@@ -1,0 +1,24 @@
+CompileFlags:
+  CompilationDatabase: build/Release/
+  Add: [-I/usr/arm-none-eabi/include, -I/usr/include/newlib, -Wno-unknown-warning-option]
+  Remove: [-m*, -f*]
+Diagnostics:
+  ClangTidy:
+    Add:
+      - bugprone-*
+      - google-*
+      - llvm-*
+      - modernize-*
+      - performance-*
+      - readability-*
+    Remove:
+      - bugprone-easily-swappable-parameters
+      - readability-identifier-length
+      - readability-magic-numbers
+      - performance-no-int-to-ptr
+    CheckOptions:
+      readability-identifier-naming: lower_case
+      readability-duplicate-include: Yes
+  UnusedIncludes: Strict
+Hover:
+  ShowAKA: true

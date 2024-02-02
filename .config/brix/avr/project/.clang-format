@@ -1,0 +1,86 @@
+BasedOnStyle: LLVM
+
+LineEnding: LF
+ColumnLimit: 80
+BreakBeforeBraces: Allman
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+IncludeCategories:
+  - Regex: '^<([^\/]+)>$'
+    Priority: 1
+    SortPriority: 1
+  - Regex: '^<.+>$'
+    Priority: 2
+    SortPriority: 2
+  - Regex: '^"core/'
+    Priority: 3
+    SortPriority: 4
+  - Regex: '^"utils/'
+    Priority: 4
+    SortPriority: 5
+  - Regex: '^"rx/'
+    Priority: 5
+    SortPriority: 6
+  - Regex: '^"system/'
+    Priority: 6
+    SortPriority: 7
+  - Regex: '^"dev/'
+    Priority: 7
+    SortPriority: 8
+  - Regex: '^"sensors/'
+    Priority: 8
+    SortPriority: 9
+  - Regex: '^"app/'
+    Priority: 9
+    SortPriority: 10
+  - Regex: '^".+"$'
+    Priority: 10
+    SortPriority: 3
+IncludeIsMainRegex: "(_test)?$"
+IncludeBlocks: Regroup
+SortIncludes: CaseSensitive
+
+UseTab: Never
+IndentWidth: 4
+IndentCaseLabels: true
+IndentCaseBlocks: false
+IndentPPDirectives: None
+
+AlignOperands: AlignAfterOperator
+AlignEscapedNewlines: Right
+AlignAfterOpenBracket: BlockIndent
+AlignTrailingComments: true
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveMacros: AcrossEmptyLinesAndComments
+
+BreakBeforeBinaryOperators: All
+BitFieldColonSpacing: Before
+
+Cpp11BracedListStyle: false
+
+ReflowComments: true
+PointerAlignment: Right
+InsertNewlineAtEOF: true
+
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+SpaceBeforeCaseColon: false
+SpaceBeforeSquareBrackets: false
+SpacesBeforeTrailingComments: 1
+SpaceInEmptyBlock: true
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+SpacesInContainerLiterals: true
+SpacesInLineCommentPrefix:
+  Minimum: 1
+
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: WithoutElse
