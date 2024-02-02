@@ -1,0 +1,9 @@
+gui:
+  nerdFontsVersion: "3"
+  border: "single"
+os:
+  editPreset: "nvim"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
