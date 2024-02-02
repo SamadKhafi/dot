@@ -1,0 +1,38 @@
+return {
+    'mfussenegger/nvim-lint',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+        local lint = require 'lint'
+
+        lint.linters_by_ft = {
+            cmake = { 'cmakelint' },
+            css = { 'stylelint' },
+            go = { 'golangcilint' },
+            gohtml = { 'djlint' },
+            javascript = { 'eslint_d' },
+            javascriptreact = { 'eslint_d' },
+            less = { 'stylelint' },
+            python = { 'pylint' },
+            sass = { 'stylelint' },
+            scss = { 'stylelint' },
+            svelte = { 'eslint_d' },
+            templ = { 'golangcilint' },
+            typescript = { 'eslint_d' },
+            typescriptreact = { 'eslint_d' },
+            yaml = { 'yamllint' },
+        }
+
+        local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+            group = lint_augroup,
+            callback = function()
+                lint.try_lint()
+            end,
+        })
+
+        vim.keymap.set('n', '<leader>ll', function()
+            lint.try_lint()
+        end, { desc = 'Refresh Diagnostics (Lint)' })
+    end,
+}

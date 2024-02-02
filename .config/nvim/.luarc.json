@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "ls"
+    ],
+    "diagnostics.disable": [
+        "param-type-mismatch"
+    ]
+}
