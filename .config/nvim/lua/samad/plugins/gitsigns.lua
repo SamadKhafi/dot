@@ -36,9 +36,9 @@ return {
                 end, { expr = true, desc = 'Previous Git hunk' })
 
                 -- Actions
-                map('n', '<leader>hb', function()
+                map('n', '<leader>gb', function()
                     gs.blame_line { full = true }
-                end, { desc = 'Git Hunk Blame' })
+                end, { desc = '[Git] Hunk Blame' })
 
                 map('n', '<leader>gd', gs.diffthis, { desc = '[Git] Diff' })
                 map('n', '<leader>ub', gs.toggle_current_line_blame, { desc = '[UI] Toggle Git Blame Line' })
