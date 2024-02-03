@@ -7,6 +7,7 @@ return {
         },
     },
     cssls = {
+        filetypes = { 'css', 'less', 'sass', 'scss', 'postcss' },
         settings = {
             css = {
                 validate = true,
@@ -47,7 +48,6 @@ return {
             'pug',
             'sass',
             'scss',
-            'svelte',
             'templ',
             'typescriptreact',
             'vue',
@@ -75,7 +75,7 @@ return {
         },
     },
     html = {
-        filetypes = { 'astro', 'html', 'htmldjango', 'vue', 'svelte', 'templ' },
+        filetypes = { 'astro', 'html', 'htmldjango', 'vue', 'templ' },
     },
     htmx = {
         filetypes = { 'html', 'templ' },
