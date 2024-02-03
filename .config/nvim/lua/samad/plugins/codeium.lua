@@ -1,4 +1,4 @@
-local utils = require 'samad.utils'
+-- local utils = require 'samad.utils'
 
 return {
     'Exafunction/codeium.nvim',
@@ -6,7 +6,8 @@ return {
         'nvim-lua/plenary.nvim',
         'hrsh7th/nvim-cmp',
     },
-    cond = utils.is_unix,
+    -- cond = utils.is_unix,
+    cond = false,
     event = { 'BufEnter' },
     cmd = 'Codeium',
     build = ':Codeium Auth',
