@@ -6,7 +6,9 @@ local map = vim.keymap.set
 
 map('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit' })
 map('n', '<leader>Q', '<cmd>q!<cr>', { desc = 'Force Quit' })
-map('n', '<leader>w', '<cmd>w<cr>', { desc = 'Save' })
+map('n', '<leader>w', function()
+    vim.cmd [[silent w]]
+end, { desc = 'Save', silent = true })
 
 map('n', 'L', '<cmd>bn<CR>', { desc = 'Next Buffer', silent = true })
 map('n', 'H', '<cmd>bN<CR>', { desc = 'Prev Buffer', silent = true })
