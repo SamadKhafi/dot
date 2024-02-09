@@ -74,12 +74,6 @@ return {
             },
         },
     },
-    html = {
-        filetypes = { 'astro', 'html', 'htmldjango', 'vue', 'templ' },
-    },
-    htmx = {
-        filetypes = { 'html', 'templ' },
-    },
     lua_ls = {
         settings = {
             Lua = {
@@ -110,21 +104,6 @@ return {
             end,
         })
     end,
-    tailwindcss = {
-        filetypes = {
-            'astro',
-            'css',
-            'html',
-            'javascriptreact',
-            'less',
-            'sass',
-            'scss',
-            'svelte',
-            'templ',
-            'typescriptreact',
-            'vue',
-        },
-    },
     taplo = {
         evenBetterToml = {
             schema = { catalogs = { 'https://www.schemastore.org/api/json/catalog.json' } },
