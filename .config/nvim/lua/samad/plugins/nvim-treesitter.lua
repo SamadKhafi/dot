@@ -13,6 +13,9 @@ return {
         -- use bash treesitter parser for zsh
         vim.treesitter.language.register('bash', 'zsh')
 
+        -- use css treesitter parser for postcss
+        vim.treesitter.language.register('css', 'postcss')
+
         treesitter.setup {
             -- enable syntax highlighting
             highlight = { enable = true, additional_vim_regex_highlighting = false },
