@@ -48,5 +48,3 @@ source $ZSH/bindings.zsh
 source $ZSH/bindings.zsh
 source $ZSH/env.zsh
 
-# bun completions
-[ -s "/home/samad/.bun/_bun" ] && source "/home/samad/.bun/_bun"
