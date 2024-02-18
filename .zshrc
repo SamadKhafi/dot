@@ -15,7 +15,7 @@ plugins=(
     colored-man-pages
     command-not-found
     directories
-    # git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_PLUGINS/fast-syntax-highlighting
+    # git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_PLUGINS_EXTERNAL/fast-syntax-highlighting
     fast-syntax-highlighting
     fnm
     fzf
@@ -35,11 +35,11 @@ plugins=(
     utils
     wezterm
     zoxide
-    # git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_PLUGINS/zsh-autosuggestions
+    # git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_PLUGINS_EXTERNAL/zsh-autosuggestions
     zsh-autosuggestions
-    # git clone https://github.com/zsh-users/zsh-completions.git $ZSH_PLUGINS/zsh-completions
+    # git clone https://github.com/zsh-users/zsh-completions.git $ZSH_PLUGINS_EXTERNAL/zsh-completions
     zsh-completions
-    # git clone https://github.com/joshskidmore/zsh-fzf-history-search.git $ZSH_PLUGINS/zsh-fzf-history-search
+    # git clone https://github.com/joshskidmore/zsh-fzf-history-search.git $ZSH_PLUGINS_EXTERNAL/zsh-fzf-history-search
     zsh-fzf-history-search
 )
 
