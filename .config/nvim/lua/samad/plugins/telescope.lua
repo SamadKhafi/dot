@@ -70,5 +70,17 @@ return {
         map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { desc = '[Find] buffers' })
         map('n', '<leader>ft', '<cmd>Telescope colorscheme<cr>', { desc = '[Find] themes' })
         map('n', "<leader>f'", '<cmd>Telescope marks<cr>', { desc = '[Find] marks' })
+
+        map('n', '<leader>fF', function()
+            require('telescope.builtin').find_files { hidden = true, no_ignore = true }
+        end, { desc = '[Find] hidden files' })
+
+        map('n', '<leader>fW', function()
+            require('telescope.builtin').live_grep {
+                additional_args = function(args)
+                    return vim.list_extend(args, { '--hidden', '--no-ignore' })
+                end,
+            }
+        end, { desc = '[Find] hidden words' })
     end,
 }
