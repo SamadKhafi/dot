@@ -25,7 +25,7 @@ return {
                 'cmakelang', -- formatter
                 'djlint', -- formatter
                 'eslint_d',
-                'golangcilint',
+                'golangci-lint',
                 'pylint',
                 'stylelint',
                 'yamllint',
