@@ -9,8 +9,8 @@ return {
                 require('conform').format {
                     bufnr = 0,
                     lsp_fallback = true,
-                    async = false,
-                    timeout_ms = 500,
+                    async = true,
+                    timeout_ms = 1000,
                 }
             end,
             mode = { 'n', 'v' },
@@ -78,8 +78,8 @@ return {
 
                 return {
                     lsp_fallback = true,
-                    async = false,
-                    timeout_ms = 500,
+                    async = true,
+                    timeout_ms = 1000,
                 }
             end,
         }
