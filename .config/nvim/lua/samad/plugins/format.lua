@@ -32,6 +32,7 @@ return {
 
         conform.setup {
             formatters_by_ft = {
+                astro = { { 'prettierd', 'prettier' } },
                 bash = { 'beautysh' },
                 css = { { 'prettierd', 'prettier' } },
                 go = { 'goimports', 'gofumpt' },
@@ -51,6 +52,7 @@ return {
                 templ = { 'templ' },
                 typescript = { { 'prettierd', 'prettier' } },
                 typescriptreact = { { 'prettierd', 'prettier' } },
+                typst = { 'typstfmt' },
                 vue = { { 'prettierd', 'prettier' } },
                 yaml = { 'yamlfmt', { 'prettierd', 'prettier' } },
                 zsh = { 'beautysh' },

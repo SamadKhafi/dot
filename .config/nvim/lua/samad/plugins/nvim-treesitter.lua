@@ -26,6 +26,7 @@ return {
             -- ensure these language parsers are installed
             ensure_installed = {
                 'arduino',
+                'astro',
                 'bash',
                 'c',
                 'cmake',
@@ -58,6 +59,7 @@ return {
                 'tsx',
                 'toml',
                 'typescript',
+                'typst',
                 'vim',
                 'vimdoc',
                 'xml',

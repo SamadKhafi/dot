@@ -6,6 +6,7 @@ return {
 
         mason_lspconfig.setup {
             ensure_installed = {
+                'astro',
                 'clangd',
                 'cmake',
                 'cssls',
@@ -21,6 +22,7 @@ return {
                 'tailwindcss',
                 'taplo',
                 'tsserver',
+                'typst_lsp',
                 'typos_lsp',
                 'vimls',
                 'yamlls',
