@@ -7,7 +7,7 @@ return {
                 color = '#E5560C',
                 name = 'Astro',
             },
-            typst = {
+            typ = {
                 icon = '',
                 color = '#01A1AD',
                 name = 'Typst',
