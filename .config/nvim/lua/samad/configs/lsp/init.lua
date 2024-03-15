@@ -1,6 +1,10 @@
 local util = require 'lspconfig/util'
 
 return {
+    -- disabled auto attaching these servers
+    disable = { 'tsserver' },
+
+    -- custom configs for lsp servers
     clangd = {
         capabilities = {
             offsetEncoding = 'utf-8',
@@ -94,47 +98,9 @@ return {
             },
         },
     },
-    svelte = function(client, _, _)
-        vim.api.nvim_create_autocmd('BufWritePost', {
-            pattern = { '*.js', '*.ts' },
-            callback = function(ctx)
-                if client.name == 'svelte' then
-                    client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
-                end
-            end,
-        })
-    end,
     taplo = {
         evenBetterToml = {
             schema = { catalogs = { 'https://www.schemastore.org/api/json/catalog.json' } },
-        },
-    },
-    tsserver = {
-        settings = {
-            typescript = {
-                inlayHints = {
-                    includeInlayParameterNameHints = 'all',
-                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                    includeInlayFunctionParameterTypeHints = true,
-                    includeInlayVariableTypeHints = true,
-                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                    includeInlayPropertyDeclarationTypeHints = true,
-                    includeInlayFunctionLikeReturnTypeHints = true,
-                    includeInlayEnumMemberValueHints = true,
-                },
-            },
-            javascript = {
-                inlayHints = {
-                    includeInlayParameterNameHints = 'all',
-                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                    includeInlayFunctionParameterTypeHints = true,
-                    includeInlayVariableTypeHints = true,
-                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                    includeInlayPropertyDeclarationTypeHints = true,
-                    includeInlayFunctionLikeReturnTypeHints = true,
-                    includeInlayEnumMemberValueHints = true,
-                },
-            },
         },
     },
     yamlls = {
