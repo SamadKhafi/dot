@@ -15,10 +15,7 @@ return {
             python = { 'pylint' },
             sass = { 'stylelint' },
             scss = { 'stylelint' },
-            svelte = { 'eslint_d' },
             templ = { 'golangcilint' },
-            typescript = { 'eslint_d' },
-            typescriptreact = { 'eslint_d' },
             yaml = { 'yamllint' },
         }
 
