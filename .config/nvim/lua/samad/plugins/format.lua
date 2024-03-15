@@ -32,32 +32,32 @@ return {
 
         conform.setup {
             formatters_by_ft = {
-                astro = { { 'prettierd', 'prettier' } },
+                astro = { 'rustywind', { 'prettierd', 'prettier' } },
                 bash = { 'beautysh' },
                 css = { { 'prettierd', 'prettier' } },
                 go = { 'goimports', 'gofumpt' },
-                gohtml = { 'djlint' },
-                html = { { 'prettierd', 'prettier' } },
+                gohtml = { 'rustywind', 'djlint' },
+                html = { 'rustywind', { 'prettierd', 'prettier' } },
                 javascript = { { 'prettierd', 'prettier' } }, -- run first available
                 javascriptreact = { { 'prettierd', 'prettier' } },
-                json = { { 'prettierd', 'prettier' } },
+                json = { 'fixjson', { 'prettierd', 'prettier' } },
                 less = { { 'prettierd', 'prettier' } },
-                markdown = { { 'prettierd', 'prettier' } },
+                markdown = { 'injected', { 'prettierd', 'prettier' } },
                 lua = { 'stylua' },
                 python = { 'isort', 'black' },
                 sass = { { 'prettierd', 'prettier' } },
                 scss = { { 'prettierd', 'prettier' } },
                 sh = { 'beautysh' },
-                svelte = { { 'prettierd', 'prettier' } },
-                templ = { 'templ' },
+                svelte = { 'rustywind', { 'prettierd', 'prettier' } },
+                templ = { 'rustywind', 'templ' },
                 typescript = { { 'prettierd', 'prettier' } },
                 typescriptreact = { { 'prettierd', 'prettier' } },
                 typst = { 'typstfmt' },
-                vue = { { 'prettierd', 'prettier' } },
+                vue = { 'rustywind', { 'prettierd', 'prettier' } },
                 yaml = { 'yamlfmt', { 'prettierd', 'prettier' } },
                 zsh = { 'beautysh' },
                 -- ['*'] = { 'codespell' }, -- run on all files
-                -- ['_'] = { 'trim_whitespace' }, -- on files that doesn't have formatters
+                ['_'] = { 'trim_newlines', 'trim_whitespace' }, -- on files that doesn't have formatters
             },
             format_on_save = function(bufnr)
                 local ignore_filetypes = {
