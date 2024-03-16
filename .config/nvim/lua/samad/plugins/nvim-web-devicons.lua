@@ -1,7 +1,8 @@
 return {
     'nvim-tree/nvim-web-devicons',
     opts = {
-        override = {
+        strict = true,
+        override_by_extension = {
             astro = {
                 icon = '',
                 color = '#E5560C',
