@@ -94,8 +94,12 @@ return {
                 pattern = { '*.js', '*.ts', '*.mts', '*.mjs', '*.cjs', '*.cts', '*.json' },
                 callback = function(ctx)
                     client.notify('workspace/didChangeWatchedFiles', {
-                        url = ctx.match,
-                        type = 2, -- 1 = file created, 2 = file changed, 3 = file deleted
+                        changes = {
+                            {
+                                uri = ctx.match,
+                                type = 2, -- 1 = file created, 2 = file changed, 3 = file deleted
+                            },
+                        },
                     })
                 end,
             })
