@@ -33,7 +33,13 @@ return {
             },
             -- send file changed event to language servers
             workspace = {
+                didChangeConfiguration = {
+                    dynamicRegistration = true,
+                },
                 didChangeWatchedFiles = {
+                    dynamicRegistration = true,
+                },
+                didChangeWorkspaceFolders = {
                     dynamicRegistration = true,
                 },
             },
