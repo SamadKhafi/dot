@@ -1,4 +1,5 @@
 return {
+    'rcarriga/nvim-notify',
     'nvim-lua/plenary.nvim',
     'echasnovski/mini.bufremove',
     'christoomey/vim-tmux-navigator',
