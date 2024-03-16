@@ -1,6 +1,10 @@
 local util = require 'lspconfig/util'
 
 return {
+    -- enable these lsp even if mason package
+    -- isn't installed
+    enable = {},
+
     -- disabled auto attaching these servers
     disable = { 'tsserver' },
 

@@ -70,6 +70,9 @@ return {
         -- setup each mason installed server
         local servers = require('mason-lspconfig').get_installed_servers()
 
+        -- always setup these servers
+        vim.list_extend(servers, configs.enable)
+
         for _, server in pairs(servers) do
             -- skip disabled servers
             if vim.tbl_contains(configs.disable, server) then
