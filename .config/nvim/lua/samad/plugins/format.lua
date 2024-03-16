@@ -44,6 +44,7 @@ return {
                 less = { { 'prettierd', 'prettier' } },
                 markdown = { 'injected', { 'prettierd', 'prettier' } },
                 lua = { 'stylua' },
+                postcss = { { 'prettierd', 'prettierd' } },
                 python = { 'isort', 'black' },
                 sass = { { 'prettierd', 'prettier' } },
                 scss = { { 'prettierd', 'prettier' } },
