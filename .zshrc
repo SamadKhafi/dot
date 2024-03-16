@@ -26,7 +26,6 @@ plugins=(
     nvim
     open
     pnpm
-    rbw
     starship
     sudo
     systemd
