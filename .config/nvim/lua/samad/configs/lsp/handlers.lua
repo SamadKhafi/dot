@@ -59,11 +59,11 @@ local function default_on_attach(client, bufnr) -- client, bufnr
     opts.desc = 'Hover Diagnostics'
     map('n', '<leader>ld', vim.diagnostic.open_float, opts)
 
-    opts.desc = 'Next Diagnostic'
-    map('n', ']d', vim.diagnostic.goto_next, opts)
+    -- opts.desc = 'Next Diagnostic'
+    -- map('n', ']d', vim.diagnostic.goto_next, opts)
 
-    opts.desc = 'Previous Diagnostic'
-    map('n', '[d', vim.diagnostic.goto_prev, opts)
+    -- opts.desc = 'Previous Diagnostic'
+    -- map('n', '[d', vim.diagnostic.goto_prev, opts)
 
     -- opts.desc = '[LSP] Hover documentation'
     -- map('n', 'K', vim.lsp.buf.hover, opts)

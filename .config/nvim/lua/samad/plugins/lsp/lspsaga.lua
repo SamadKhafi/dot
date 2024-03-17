@@ -7,14 +7,14 @@ return {
     event = { 'LspAttach' },
     config = function()
         require('lspsaga').setup {
-            symbol_in_winbar = { enable = true, hide_keyword = true },
             code_action = { show_server_name = true, extend_gitsigns = true },
-            lightbulb = { sign = false },
+            diagnostic = { extend_relatedInformation = true },
             implement = { enable = true, sign = true, virtual_text = true, priority = 200 },
+            lightbulb = { sign = false, virtual_text = true, debounce = 100 },
+            symbol_in_winbar = { enable = true, hide_keyword = true },
             ui = {
                 border = 'rounded',
                 devicon = true,
-                -- kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
             },
         }
 
@@ -26,5 +26,7 @@ return {
         map('n', '<leader>lS', '<cmd>Lspsaga outline<CR>', { desc = '[LSP] Symbols Outline', silent = true })
         map('n', '<leader>li', '<cmd>Lspsaga finder imp<CR>', { desc = '[LSP] Show Implementations', silent = true })
         map({ 'n', 't' }, '<F7>', '<cmd>Lspsaga term_toggle<CR>', { desc = 'Toggle Terminal', silent = true })
+        map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', { desc = 'Next Diagnostic', silent = true })
+        map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { desc = 'Previous Diagnostic', silent = true })
     end,
 }
