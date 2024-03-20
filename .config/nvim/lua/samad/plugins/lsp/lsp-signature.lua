@@ -1,9 +1,15 @@
 return {
-    'neovim/nvim-lspconfig',
+    'ray-x/lsp_signature.nvim',
     dependencies = {
-        'ray-x/lsp_signature.nvim',
-        opts = {
-            hint_enable = false, -- disable hints as it will crash in some terminal
+        'neovim/nvim-lspconfig',
+    },
+    opts = {
+        extra_trigger_chars = { '(', ',' },
+        floating_window_off_x = 4,
+        floating_window_off_y = -1,
+        hint_enable = false,
+        handler_opts = {
+            border = 'rounded',
         },
     },
 }
