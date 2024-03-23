@@ -6,6 +6,11 @@ return {
         {
             '<leader>lf',
             function()
+                -- skip if current buffer is readonly buffer
+                if not vim.bo.modifiable or vim.bo.readonly then
+                    return
+                end
+
                 require('conform').format {
                     bufnr = 0,
                     lsp_fallback = true,
