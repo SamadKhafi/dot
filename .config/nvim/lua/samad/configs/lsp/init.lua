@@ -45,17 +45,12 @@ return {
     },
     emmet_ls = {
         filetypes = {
-            'astro',
-            'css',
             'eruby',
             'gohtml',
             'html',
             'htmldjango',
             'javascriptreact',
-            'less',
             'pug',
-            'sass',
-            'scss',
             'templ',
             'typescriptreact',
             'vue',
