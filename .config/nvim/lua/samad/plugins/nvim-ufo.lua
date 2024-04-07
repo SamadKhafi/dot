@@ -17,7 +17,7 @@ return {
             end,
         },
     },
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'VeryLazy', 'BufNewFile' },
     opts = {
         preview = {
             mappings = {
