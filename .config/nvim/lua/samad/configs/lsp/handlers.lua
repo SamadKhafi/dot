@@ -12,7 +12,7 @@ local function set_inlay_hints(client)
     -- use persistent (SHADA) variable for showing inlay hints on startup
     if vim.g.INLAY_HINTS_ENABLED ~= false then
         vim.g.INLAY_HINTS_ENABLED = true
-        vim.lsp.inlay_hint.enable(0, true)
+        vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
     else
         vim.g.INLAY_HINTS_ENABLED = false
     end
@@ -22,7 +22,7 @@ local function set_inlay_hints(client)
     map('n', '<leader>uh', function()
         local is_enabled = vim.lsp.inlay_hint.is_enabled(0)
 
-        vim.lsp.inlay_hint.enable(0, not is_enabled)
+        vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
         vim.g.INLAY_HINTS_ENABLED = not is_enabled
     end, opts)
 end
