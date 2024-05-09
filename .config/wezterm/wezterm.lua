@@ -7,6 +7,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
+config.enable_wayland = true
 
 config.color_scheme = "tokyonight_night"
 config.font_size = 12.0
