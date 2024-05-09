@@ -48,6 +48,7 @@ return {
                 json = { 'fixjson', { 'prettierd', 'prettier' } },
                 less = { { 'prettierd', 'prettier' } },
                 markdown = { { 'prettierd', 'prettier' } },
+                mdx = { { 'prettierd', 'prettier' } },
                 php = { 'pint' },
                 lua = { 'stylua' },
                 postcss = { { 'prettierd', 'prettierd' } },

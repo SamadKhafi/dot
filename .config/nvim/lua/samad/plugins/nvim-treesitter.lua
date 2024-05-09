@@ -16,6 +16,9 @@ return {
         -- use css treesitter parser for postcss
         vim.treesitter.language.register('css', 'postcss')
 
+        -- use markdown treesitter parser for mdx
+        vim.treesitter.language.register('markdown', 'markdown.mdx')
+
         treesitter.setup {
             -- enable syntax highlighting
             highlight = { enable = true, additional_vim_regex_highlighting = false },
