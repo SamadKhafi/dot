@@ -53,7 +53,7 @@ vim.o.showtabline = 2
 vim.cmd [[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]]
 
 -- change the diagnostic symbols
-local signs = { Error = ' ', Warn = ' ', Hint = '󰌵 ', Info = ' ' }
+local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 
 for type, icon in pairs(signs) do
     local hl = 'DiagnosticSign' .. type
