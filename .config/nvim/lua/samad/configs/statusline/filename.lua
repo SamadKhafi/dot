@@ -42,13 +42,15 @@ local FileType = {
 
 local FileFlags = {
     {
-        condition = function()
-            return vim.bo.modified
+        provider = function()
+            if vim.bo.modified then
+                return '  '
+            else
+                return '   '
+            end
         end,
 
-        provider = '[+]',
-
-        hl = { fg = 'green', bg = 'bg' },
+        hl = { fg = 'orange', bg = 'bg' },
     },
 
     {
