@@ -10,10 +10,34 @@ end
 config.enable_wayland = true
 
 config.color_scheme = "tokyonight_night"
+config.font = wezterm.font_with_fallback({
+	{
+		family = "Monaspace Radon",
+		weight = "Medium",
+		harfbuzz_features = {
+			"calt",
+			"ss01",
+			"ss02",
+			"ss03",
+			"ss04",
+			"ss05",
+			"ss06",
+			"ss07",
+			"ss08",
+			"ss09",
+			"liga",
+		},
+	},
+	{
+		family = "JetBrains Mono",
+	},
+})
 config.font_size = 12.0
 -- config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "Catppuccin Macchiato"
 -- config.color_scheme = "GitHub Dark"
+config.line_height = 1.1
+config.freetype_load_target = "Light"
 
 config.enable_scroll_bar = false
 config.window_padding = {
