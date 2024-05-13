@@ -1,6 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+notARepository: "skip"
+promptToReturnFromSubprocess: false
 gui:
   nerdFontsVersion: "3"
   border: "single"
+  theme:
+    activeBorderColor:
+      - "#89ddff"
+      - bold
+    inactiveBorderColor:
+      - "#565f89"
+    searchingActiveBorderColor:
+      - "#89ddff"
+    optionsTextColor:
+      - "#565f89"
+    selectedLineBgColor:
+      - "#292e42"
+    defaultFgColor:
+      - "#c0caf5"
 os:
   editPreset: "nvim"
 git:
