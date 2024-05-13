@@ -33,9 +33,6 @@ config.font = wezterm.font_with_fallback({
 	},
 })
 config.font_size = 12.0
--- config.color_scheme = "Catppuccin Mocha"
--- config.color_scheme = "Catppuccin Macchiato"
--- config.color_scheme = "GitHub Dark"
 config.line_height = 1.1
 config.freetype_load_target = "Light"
 
@@ -49,29 +46,29 @@ config.window_padding = {
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
--- Catppuccin Mocha theme for tab bar
+-- tokyonight_night theme for tab bar
 config.colors = {
 	tab_bar = {
-		background = "#313244",
+		background = "#292e42",
 		active_tab = {
-			bg_color = "#1e1e2e",
-			fg_color = "#f5e0dc",
+			bg_color = "#1a1b26",
+			fg_color = "#c0caf5",
 		},
 		inactive_tab = {
-			bg_color = "#45475a",
-			fg_color = "#a6adc8",
+			bg_color = "#414868",
+			fg_color = "#a9b1d6",
 		},
 		inactive_tab_hover = {
-			bg_color = "#585b70",
-			fg_color = "#cdd6f4",
+			bg_color = "#545c7e",
+			fg_color = "#c0caf5",
 		},
 		new_tab = {
-			bg_color = "#313244",
-			fg_color = "#bac2de",
+			bg_color = "#292e42",
+			fg_color = "#bb9af7",
 		},
 		new_tab_hover = {
-			bg_color = "#585b70",
-			fg_color = "#cdd6f4",
+			bg_color = "#545c7e",
+			fg_color = "#c0caf5",
 		},
 	},
 }
