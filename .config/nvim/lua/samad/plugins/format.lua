@@ -35,6 +35,13 @@ return {
     config = function()
         local conform = require 'conform'
 
+        local ignore_filetypes = {
+            'cmake',
+            'markdown',
+        }
+
+        local slow_format_filetypes = {}
+
         conform.setup {
             formatters_by_ft = {
                 astro = { 'rustywind', { 'prettierd', 'prettier' } },
@@ -68,12 +75,11 @@ return {
                 ['_'] = { 'trim_newlines', 'trim_whitespace' }, -- on files that doesn't have formatters
             },
             format_on_save = function(bufnr)
-                local ignore_filetypes = {
-                    'cmake',
-                    'markdown',
-                }
-
                 if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+                    return
+                end
+
+                if slow_format_filetypes[vim.bo[bufnr].filetype] then
                     return
                 end
 
@@ -86,11 +92,36 @@ return {
                     return
                 end
 
+                local function on_format(err)
+                    if err and err:match 'timeout$' then
+                        slow_format_filetypes[vim.bo[bufnr].filetype] = true
+                    end
+                end
+
                 return {
+                    timeout_ms = 300,
                     lsp_fallback = true,
-                    async = true,
-                    timeout_ms = 1000,
-                }
+                }, on_format
+            end,
+            format_after_save = function(bufnr)
+                if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+                    return
+                end
+
+                if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+                    return
+                end
+
+                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                    return
+                end
+
+                local bufname = vim.api.nvim_buf_get_name(bufnr)
+                if bufname:match '/node_modules/' then
+                    return
+                end
+
+                return { lsp_fallback = true }
             end,
         }
     end,
