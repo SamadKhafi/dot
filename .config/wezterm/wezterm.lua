@@ -33,7 +33,7 @@ config.font = wezterm.font_with_fallback({
 	},
 })
 config.font_size = 12.0
-config.line_height = 1.1
+config.line_height = 1.3
 config.freetype_load_target = "Light"
 
 config.enable_scroll_bar = false
