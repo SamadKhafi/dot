@@ -8,12 +8,11 @@ end
 
 -- This is where you actually apply your config choices
 config.enable_wayland = true
-
 config.color_scheme = "tokyonight_night"
 config.font = wezterm.font_with_fallback({
 	{
 		family = "Monaspace Radon",
-		weight = "Medium",
+		weight = "Regular",
 		harfbuzz_features = {
 			"calt",
 			"ss01",
