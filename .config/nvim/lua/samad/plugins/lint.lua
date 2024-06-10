@@ -5,6 +5,7 @@ return {
         local lint = require 'lint'
 
         lint.linters_by_ft = {
+            blade = { 'tlint' },
             cmake = { 'cmakelint' },
             css = { 'stylelint' },
             go = { 'golangcilint' },
@@ -12,6 +13,7 @@ return {
             javascript = { 'eslint_d' },
             javascriptreact = { 'eslint_d' },
             less = { 'stylelint' },
+            php = { 'tlint' },
             python = { 'pylint' },
             sass = { 'stylelint' },
             scss = { 'stylelint' },
