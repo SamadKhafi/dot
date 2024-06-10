@@ -14,6 +14,7 @@ plugins=(
     cargo
     colored-man-pages
     command-not-found
+    composer
     directories
     # git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git $ZSH_PLUGINS_EXTERNAL/fast-syntax-highlighting
     fast-syntax-highlighting
