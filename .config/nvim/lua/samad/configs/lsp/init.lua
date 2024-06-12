@@ -45,6 +45,7 @@ return {
     },
     emmet_ls = {
         filetypes = {
+            'blade',
             'eruby',
             'gohtml',
             'html',
