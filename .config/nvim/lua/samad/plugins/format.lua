@@ -46,7 +46,7 @@ return {
             formatters_by_ft = {
                 astro = { 'rustywind', { 'prettierd', 'prettier' } },
                 bash = { 'beautysh' },
-                blade = { 'blade-formatter', 'tlint' },
+                blade = { { 'prettierd', 'prettier', 'blade-formatter', 'tlint' } },
                 css = { { 'prettierd', 'prettier' } },
                 go = { 'goimports', 'gofumpt' },
                 gohtml = { 'rustywind', 'djlint' },
