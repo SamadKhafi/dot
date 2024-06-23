@@ -1,3 +1,5 @@
+local utils = require 'samad.utils'
+
 -- set <Space> as leader key
 vim.g.mapleader = ' '
 vim.g.localleader = ' '
@@ -75,6 +77,15 @@ map('i', '<C-t>f', "<C-r>=strftime('%B %d, {%Y')<cr>", { desc = 'B d, Y' })
 map('i', '<C-t>X', "<C-r>=strftime('%H:%M')<cr>", { desc = 'H:M' })
 map('i', '<C-t>F', "<C-r>=strftime('%H:%M:%S')<cr>", { desc = 'H:M:S' })
 map('i', '<C-t>d', "<C-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", { desc = 'Y/m/d H:M:S -' })
+map('i', '<C-t>s', function()
+    utils.insert_in_place(utils.get_unix_seconds())
+end, { desc = 'Unix Seconds' })
+map('i', '<C-t>m', function()
+    utils.insert_in_place(utils.get_unix_millis())
+end, { desc = 'Unix Millis' })
+map('i', '<C-t>u', function()
+    utils.insert_in_place(utils.get_unix_micros())
+end, { desc = 'Unix Micros' })
 
 -- block movement
 map('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move block down' })

@@ -68,4 +68,27 @@ function M.is_unix()
     return sysname == 'Linux' or sysname == 'Darwin'
 end
 
+function M.insert_in_place(text)
+    local pos = vim.api.nvim_win_get_cursor(0)[2]
+    local line = vim.api.nvim_get_current_line()
+    local nline = line:sub(0, pos) .. text .. line:sub(pos + 1)
+    vim.api.nvim_set_current_line(nline)
+end
+
+function M.get_unix_micros()
+    local seconds, micros = vim.uv.gettimeofday()
+    return string.format('%d%06d', seconds, micros)
+end
+
+function M.get_unix_millis()
+    local seconds, micros = vim.uv.gettimeofday()
+    local millis = math.floor(micros / 1000)
+    return string.format('%d%03d', seconds, millis)
+end
+
+function M.get_unix_seconds()
+    local seconds = vim.uv.gettimeofday()
+    return seconds
+end
+
 return M
