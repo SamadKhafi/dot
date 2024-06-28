@@ -48,7 +48,7 @@ return {
                 bash = { 'beautysh' },
                 blade = { { 'prettierd', 'prettier', 'blade-formatter', 'tlint' } },
                 css = { { 'prettierd', 'prettier' } },
-                go = { 'goimports', 'gofumpt' },
+                go = { 'golines', 'goimports', 'gofumpt' },
                 gohtml = { 'rustywind', 'djlint' },
                 html = { 'rustywind', { 'prettierd', 'prettier' } },
                 javascript = { { 'prettierd', 'prettier' } }, -- run first available
