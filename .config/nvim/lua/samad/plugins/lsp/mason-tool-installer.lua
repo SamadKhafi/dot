@@ -29,6 +29,7 @@ return {
                 'djlint', -- formatter
                 'eslint_d',
                 'golangci-lint',
+                'nilaway',
                 'pylint',
                 'stylelint',
                 'yamllint',
