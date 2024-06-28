@@ -12,12 +12,15 @@ return {
                 -- formatters
                 'beautysh',
                 'black',
+                'fixjson',
                 'gofumpt',
                 'goimports',
+                'golines',
                 'gomodifytags',
                 'gotests',
                 'isort',
                 'prettierd',
+                'rustywind',
                 'stylua',
                 'yamlfmt',
 
