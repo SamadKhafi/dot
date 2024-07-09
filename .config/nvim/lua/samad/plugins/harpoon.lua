@@ -10,6 +10,8 @@ return {
         local mark = require 'harpoon.mark'
         local ui = require 'harpoon.ui'
 
+        map('n', '<leader>h', '', { desc = 'Harpoon' })
+
         map('n', '<leader>hm', function()
             mark.add_file()
         end, { desc = '[Harpoon] Mark' })

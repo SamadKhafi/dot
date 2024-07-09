@@ -18,6 +18,7 @@ return {
             },
         }
 
+        vim.keymap.set('n', '<leader>g', '', { desc = 'Go/Git' })
         vim.keymap.set('n', '<leader>ge', '<cmd>GoIfErr<CR>', { desc = '[Go] if Error', silent = true, noremap = true })
         vim.keymap.set('n', '<leader>gc', '<cmd>GoCmt<CR>', { desc = '[Go] Document Comment', silent = true, noremap = true })
         vim.keymap.set('n', '<leader>gm', '<cmd>GoMod tidy<CR>', { desc = '[Go] Mod tidy', silent = true, noremap = true })

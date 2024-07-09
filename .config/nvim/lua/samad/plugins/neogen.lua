@@ -8,6 +8,7 @@ return {
             snippet_engine = 'luasnip',
         }
 
-        vim.keymap.set('n', '<leader>ad', neogen.generate, { desc = '[Add] Document Comment', noremap = true, silent = true })
+        vim.keymap.set('n', '<leader>n', '', { desc = 'New' })
+        vim.keymap.set('n', '<leader>nd', neogen.generate, { desc = '[New] Document Comment', noremap = true, silent = true })
     end,
 }

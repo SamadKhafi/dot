@@ -31,6 +31,8 @@ return {
         -- keymaps
         local map = vim.keymap.set
 
+        map('n', '<leader>d', '', { desc = 'Debugger' })
+
         map('n', '<leader>dk', function()
             require('dap.ui.widgets').hover()
         end, { desc = '[Debugger] Hover', noremap = true, silent = true })

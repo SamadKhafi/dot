@@ -19,7 +19,7 @@ return {
                 }
             end,
             mode = { 'n', 'v' },
-            desc = 'Format',
+            desc = '[Formatter] Format',
             silent = true,
             noremap = true,
         },
@@ -27,7 +27,7 @@ return {
             '<leader>lc',
             '<cmd>ConformInfo<CR>',
             mode = 'n',
-            desc = '[LSP] Conform Information',
+            desc = '[Formatter] Information',
             silent = true,
             noremap = true,
         },

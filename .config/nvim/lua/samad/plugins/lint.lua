@@ -32,6 +32,6 @@ return {
 
         vim.keymap.set('n', '<leader>ll', function()
             lint.try_lint()
-        end, { desc = 'Refresh Diagnostics (Lint)' })
+        end, { desc = '[Linter] Refresh Diagnostics' })
     end,
 }

@@ -63,6 +63,8 @@ return {
 
         -- set keymaps
         local map = vim.keymap.set -- for conciseness
+        map('n', '<leader>f', '', { desc = 'Find' })
+
         map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = '[Find] files' })
         map('n', '<leader>fo', '<cmd>Telescope oldfiles<cr>', { desc = '[Find] history' })
         map('n', '<leader>fw', '<cmd>Telescope live_grep<cr>', { desc = '[Find] words' })

@@ -53,10 +53,10 @@ local function default_on_attach(client, bufnr) -- client, bufnr
     -- opts.desc = 'LSP Rename Symbol'
     -- map('n', '<leader>lr', vim.lsp.buf.rename, opts)
 
-    opts.desc = 'Search Diagnostics'
+    opts.desc = '[LSP] Search Diagnostics'
     map('n', '<leader>lD', '<cmd>Telescope diagnostics bufnr=0<CR>', opts)
 
-    opts.desc = 'Hover Diagnostics'
+    opts.desc = '[LSP] Hover Diagnostics'
     map('n', '<leader>ld', vim.diagnostic.open_float, opts)
 
     -- opts.desc = 'Next Diagnostic'

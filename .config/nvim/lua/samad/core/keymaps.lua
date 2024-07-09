@@ -12,6 +12,15 @@ map('n', '<leader>w', function()
     vim.cmd [[silent w]]
 end, { desc = 'Save', silent = true })
 
+-- language related (lsp/linter/formatter)
+map('n', '<leader>l', '', { desc = 'LSP/Linter/Formatter' })
+-- package management
+map('n', '<leader>p', '', { desc = 'Packages' })
+-- ui related keys
+map('n', '<leader>u', '', { desc = 'UI' })
+
+-- this is useful for naming menus
+map('n', '<leader>b', '', { desc = 'Buffers' })
 map('n', 'L', '<cmd>bn<CR>', { desc = 'Next Buffer', silent = true })
 map('n', 'H', '<cmd>bN<CR>', { desc = 'Prev Buffer', silent = true })
 -- map('n', '<leader>c', '<cmd>bd<CR>', { desc = 'Close buffer', silent = true })
@@ -33,20 +42,18 @@ map('n', '<C-k>', '<cmd> TmuxNavigateUp<cr>', { desc = 'Window Up' })
 map('n', '+', '<C-a>', { desc = 'Increment number' }) -- increment
 map('n', '-', '<C-x>', { desc = 'Decrement number' }) -- decrement
 
--- this is useful for naming menus
-map('n', '<leader>b', '', { desc = 'Buffers' })
-
 -- Search and replace the word under the cursor using F4
-map('n', '<F4>', ':%s/<C-r><C-w>/<C-r><C-w>/gc<C-f>$F/i', { desc = 'Search and replace word under cursor' })
-map('n', '<leader>rw', ':%s/<C-r><C-w>/<C-r><C-w>/gc<C-f>$F/i', { desc = 'Search and replace word under cursor' })
 map('n', '<leader>r', '', { desc = 'Rename' })
+map('n', '<leader>rw', ':%s/<C-r><C-w>/<C-r><C-w>/gc<C-f>$F/i', { desc = 'Search and replace word under cursor' })
+map('n', '<F4>', ':%s/<C-r><C-w>/<C-r><C-w>/gc<C-f>$F/i', { desc = 'Search and replace word under cursor' })
 
 -- spotify control
-map('n', '<leader>sc', ':!sp current<cr>', { desc = 'Spotify Current Song' })
-map('n', '<leader>sp', ':!sp play >/dev/null 2>&1<cr><cr>', { desc = 'Spotify Play/Pause' })
-map('n', '<leader>sn', ':!sp next >/dev/null 2>&1<cr><cr>', { desc = 'Spotify Next' })
-map('n', '<leader>sN', ':!sp prev >/dev/null 2>&1<cr><cr>', { desc = 'Spotify Previous' })
-map('n', '<leader>ss', ':!sp search ', { desc = 'Spotify Previous' })
+map('n', '<leader>s', '', { desc = 'Spotify/Session' })
+map('n', '<leader>sc', ':!sp current<cr>', { desc = '[Spotify] Current Song' })
+map('n', '<leader>sp', ':!sp play >/dev/null 2>&1<cr><cr>', { desc = '[Spotify] Play/Pause' })
+map('n', '<leader>sn', ':!sp next >/dev/null 2>&1<cr><cr>', { desc = '[Spotify] Next' })
+map('n', '<leader>sN', ':!sp prev >/dev/null 2>&1<cr><cr>', { desc = '[Spotify] Previous' })
+map('n', '<leader>ss', ':!sp search ', { desc = '[Spotify] Previous' })
 
 -- line movement
 map('n', '<A-j>', ':m .+1<cr>==', { desc = 'Move line down' })
@@ -59,9 +66,6 @@ map('n', '<leader>fT', '<cmd>TodoTelescope<cr>', { desc = '[Find] TODOs' })
 
 -- trouble plugin mappings
 -- map('n', '<leader>y', '', { desc = 'Trouble' })
-
--- C/C++ switch between header and source files
-map('n', 'gh', '<cmd>ClangdSwitchSourceHeader<cr>', { desc = 'Switch to header or source' })
 
 -- line movement
 map('i', '<A-j>', '<Esc>:m .+1<cr>==gi', { desc = 'Move line down' })
