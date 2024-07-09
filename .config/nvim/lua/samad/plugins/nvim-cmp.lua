@@ -9,13 +9,13 @@ return {
         'saadparwaiz1/cmp_luasnip', -- for autocompletion
         'rafamadriz/friendly-snippets', -- useful snippets
         'onsails/lspkind.nvim', -- vscode like pictograms
+        'https://git.sr.ht/~p00f/clangd_extensions.nvim', -- clangd completion sorting
     },
     config = function()
         local cmp = require 'cmp'
         local luasnip = require 'luasnip'
         local lspkind = require 'lspkind'
         local compare = require 'cmp.config.compare'
-        -- local fzy = require 'samad.fzy'
 
         -- loads vscode style snippets from installed plugins. (e.g. friendly-snippets)
         require('luasnip.loaders.from_vscode').lazy_load()
@@ -53,6 +53,8 @@ return {
             local line, col = unpack(vim.api.nvim_win_get_cursor(0))
             return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
         end
+
+        local clangd_score = require 'clangd_extensions.cmp_scores'
 
         cmp.setup {
             completion = {
@@ -96,7 +98,9 @@ return {
             },
             sorting = {
                 comparators = {
+                    compare.offset,
                     compare.exact,
+                    clangd_score,
                     compare.score,
                     lspkind_comparator {
                         kind_priority = {
@@ -149,13 +153,6 @@ return {
                     mode = 'symbol_text',
                     maxwidth = 50,
                     ellipsis_char = '...',
-                    -- menu = {
-                    --     buffer = '[Buffer]',
-                    --     codeium = '[AI]',
-                    --     luasnip = '[LuaSnip]',
-                    --     nvim_lsp = '[LSP]',
-                    --     path = '[Path]',
-                    -- },
                     symbol_map = {
                         Array = '',
                         Boolean = '',
@@ -193,9 +190,6 @@ return {
                     end,
                 },
             },
-            -- view = {
-            --     entries = { name = 'custom', selection_order = 'near_cursor' },
-            -- },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
