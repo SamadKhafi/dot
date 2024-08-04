@@ -1,0 +1,13 @@
+[theme]
+name = "tokyonight-night"
+parent = "autumn"
+
+[colors]
+AlertInfo = "#0db9d7"
+AlertWarn = "#e0af68"
+AlertError = "#db4b4b"
+Annotation = "#1abc9c"
+Base = "#c0caf5"
+Guidance = "#565f89"
+Important = "#f7768e"
+Title = "#ffffff"

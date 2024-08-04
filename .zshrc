@@ -9,6 +9,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 plugins=(
     appearance
     archlinux
+    atuin
     bob
     bun
     cargo

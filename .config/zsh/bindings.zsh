@@ -10,3 +10,6 @@ bindkey -s "^G" "lazygit^M"
 
 # Ctrl + D to open LazyDocker
 bindkey -s "^D" "lazydocker^M"
+
+# Ctrl + F to search shell history using atuin
+bindkey '^f' atuin-search
