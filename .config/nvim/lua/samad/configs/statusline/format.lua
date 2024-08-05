@@ -14,7 +14,7 @@ local Formatters = {
         end
 
         local names = {}
-        for _, formatter in pairs(conform.list_formatters()) do
+        for _, formatter in pairs(conform.list_formatters_to_run(0)) do
             if formatter.available then
                 table.insert(names, formatter.name)
             end
