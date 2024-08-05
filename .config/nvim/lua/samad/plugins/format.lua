@@ -1,3 +1,17 @@
+---@param bufnr integer
+---@param ... string
+---@return string
+local function first(bufnr, ...)
+    local conform = require 'conform'
+    for i = 1, select('#', ...) do
+        local formatter = select(i, ...)
+        if conform.get_formatter_info(formatter, bufnr).available then
+            return formatter
+        end
+    end
+    return select(1, ...)
+end
+
 return {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -13,8 +27,8 @@ return {
 
                 require('conform').format {
                     bufnr = 0,
-                    lsp_fallback = true,
                     async = true,
+                    lsp_format = 'fallback',
                     timeout_ms = 1000,
                 }
             end,
@@ -44,36 +58,42 @@ return {
 
         conform.setup {
             formatters_by_ft = {
-                astro = { 'rustywind', { 'prettierd', 'prettier' } },
+                astro = { 'prettierd', 'prettier', stop_after_first = true },
                 bash = { 'beautysh' },
-                blade = { { 'prettierd', 'prettier', 'blade-formatter', 'tlint' } },
-                css = { { 'prettierd', 'prettier' } },
+                blade = { 'prettierd', 'prettier', 'blade-formatter', 'tlint', stop_after_first = true },
+                css = { 'prettierd', 'prettier', stop_after_first = true },
                 go = { 'golines', 'goimports', 'gofumpt' },
-                gohtml = { 'rustywind', 'djlint' },
-                html = { 'rustywind', { 'prettierd', 'prettier' } },
-                javascript = { { 'prettierd', 'prettier' } }, -- run first available
-                javascriptreact = { { 'prettierd', 'prettier' } },
-                json = { 'fixjson', { 'prettierd', 'prettier' } },
-                less = { { 'prettierd', 'prettier' } },
-                markdown = { { 'prettierd', 'prettier' } },
+                gohtml = { 'djlint' },
+                html = { 'prettierd', 'prettier', stop_after_first = true },
+                javascript = { 'prettierd', 'prettier', stop_after_first = true },
+                javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+                json = function(bufnr)
+                    return { 'fixjson', first(bufnr, 'prettierd', 'prettier') }
+                end,
+                less = { 'prettierd', 'prettier', stop_after_first = true },
+                markdown = { 'prettierd', 'prettier', stop_after_first = true },
                 lua = { 'stylua' },
-                mdx = { { 'prettierd', 'prettier' } },
+                mdx = { 'prettierd', 'prettier', stop_after_first = true },
                 php = { 'pint', 'tlint' },
-                postcss = { { 'prettierd', 'prettierd' } },
+                postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 python = { 'isort', 'black' },
-                sass = { { 'prettierd', 'prettier' } },
-                scss = { { 'prettierd', 'prettier' } },
+                sass = { 'prettierd', 'prettier', stop_after_first = true },
+                scss = { 'prettierd', 'prettier', stop_after_first = true },
                 sh = { 'beautysh' },
-                svelte = { 'rustywind', { 'prettierd', 'prettier' } },
-                templ = { 'rustywind', 'templ' },
-                typescript = { { 'prettierd', 'prettier' } },
-                typescriptreact = { { 'prettierd', 'prettier' } },
+                svelte = { 'prettierd', 'prettier', stop_after_first = true },
+                templ = { 'templ' },
+                typescript = { 'prettierd', 'prettier', stop_after_first = true },
+                typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
                 typst = { 'typstfmt' },
-                vue = { 'rustywind', { 'prettierd', 'prettier' } },
-                yaml = { 'yamlfmt', { 'prettierd', 'prettier' } },
+                vue = { 'prettierd', 'prettier', stop_after_first = true },
+                yaml = function(bufnr)
+                    return { 'yamlfmt', first(bufnr, 'prettierd', 'prettier') }
+                end,
                 zsh = { 'beautysh' },
-                -- ['*'] = { 'codespell' }, -- run on all files
                 ['_'] = { 'trim_newlines', 'trim_whitespace' }, -- on files that doesn't have formatters
+            },
+            default_format_opts = {
+                lsp_format = 'fallback',
             },
             format_on_save = function(bufnr)
                 if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
@@ -100,9 +120,11 @@ return {
                 end
 
                 return {
+                    bufnr = bufnr,
                     timeout_ms = 300,
-                    lsp_fallback = true,
-                }, on_format
+                    lsp_format = 'fallback',
+                },
+                    on_format
             end,
             format_after_save = function(bufnr)
                 if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
@@ -122,7 +144,7 @@ return {
                     return
                 end
 
-                return { lsp_fallback = true }
+                return { bufnr = bufnr, lsp_format = 'fallback' }
             end,
         }
     end,
