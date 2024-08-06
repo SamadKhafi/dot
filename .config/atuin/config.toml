@@ -4,3 +4,7 @@ theme = "tokyonight-night"
 
 [sync]
 records = true
+
+[daemon]
+enabled = true
+socket_path = "/run/user/1000/atuin.sock"
