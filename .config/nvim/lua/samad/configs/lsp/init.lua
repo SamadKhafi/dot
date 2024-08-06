@@ -62,6 +62,13 @@ return {
             },
         },
     },
+    eslint = {
+        settings = {
+            experimental = {
+                useFlatConfig = true,
+            },
+        },
+    },
     gopls = {
         filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
         root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
