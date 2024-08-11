@@ -85,6 +85,14 @@ return {
             },
         },
     },
+    jsonls = {
+        settings = {
+            json = {
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
+            },
+        },
+    },
     lua_ls = {
         settings = {
             Lua = {
@@ -112,5 +120,13 @@ return {
     },
     yamlls = {
         capabilities = {},
+        settings = {
+            -- disable yamlls default schema store
+            schemaStore = {
+                enable = false,
+                url = '',
+            },
+            schemas = require('schemastore').yaml.schemas(),
+        },
     },
 }

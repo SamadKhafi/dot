@@ -2,6 +2,7 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
+        'b0o/schemastore.nvim',
         'hrsh7th/cmp-nvim-lsp',
         { 'antosha417/nvim-lsp-file-operations', config = true },
         { 'folke/neodev.nvim', cond = false, opts = {} },
@@ -26,6 +27,11 @@ return {
         local additional_capabilities = {
             -- add line folding capabilities (not added by default)
             textDocument = {
+                completion = {
+                    completionItem = {
+                        snippetSupport = true,
+                    },
+                },
                 foldingRange = {
                     dynamicRegistration = false,
                     lineFoldingOnly = true,
