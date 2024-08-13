@@ -88,6 +88,8 @@ return {
     intelephense = {
         settings = {
             intelephense = {
+                files = { maxSize = 10000000 },
+                format = { enable = true, braces = 'allman' },
                 stubs = {
                     'apache',
                     'bcmath',
@@ -164,9 +166,7 @@ return {
                     'wordpress-globals',
                     'acf-pro',
                 },
-                files = {
-                    maxSize = 5000000,
-                },
+                telemetry = { enabled = false },
             },
         },
     },
