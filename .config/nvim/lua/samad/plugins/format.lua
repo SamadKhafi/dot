@@ -74,7 +74,6 @@ return {
                 markdown = { 'prettierd', 'prettier', stop_after_first = true },
                 lua = { 'stylua' },
                 mdx = { 'prettierd', 'prettier', stop_after_first = true },
-                php = { 'pint', 'tlint' },
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 python = { 'isort', 'black' },
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
