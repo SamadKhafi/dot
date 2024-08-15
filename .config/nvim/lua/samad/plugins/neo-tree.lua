@@ -12,6 +12,10 @@ return {
     end,
 
     config = function()
+        local utils = require 'samad.utils'
+
+        local signs = utils.get_diagnostic_signs()
+
         require('neo-tree').setup {
             auto_clean_after_session_restore = true,
             close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
@@ -124,16 +128,16 @@ return {
             default_component_configs = {
                 diagnostics = {
                     symbols = {
-                        hint = vim.fn.sign_getdefined('DiagnosticSignHint')[1].text,
-                        info = vim.fn.sign_getdefined('DiagnosticSignInfo')[1].text,
-                        warn = vim.fn.sign_getdefined('DiagnosticSignWarn')[1].text,
-                        error = vim.fn.sign_getdefined('DiagnosticSignError')[1].text,
+                        error = signs[vim.diagnostic.severity.ERROR],
+                        warn = signs[vim.diagnostic.severity.WARN],
+                        info = signs[vim.diagnostic.severity.INFO],
+                        hint = signs[vim.diagnostic.severity.HINT],
                     },
                     highlights = {
-                        hint = 'DiagnosticSignHint',
-                        info = 'DiagnosticSignInfo',
-                        warn = 'DiagnosticSignWarn',
                         error = 'DiagnosticSignError',
+                        warn = 'DiagnosticSignWarn',
+                        info = 'DiagnosticSignInfo',
+                        hint = 'DiagnosticSignHint',
                     },
                 },
                 git_status = {

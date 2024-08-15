@@ -48,6 +48,21 @@ function M.get_hlgroup(name, fallback)
     return fallback or {}
 end
 
+function M.get_diagnostic_signs()
+    local default_signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+            [vim.diagnostic.severity.HINT] = ' ',
+        },
+    }
+
+    local config = vim.tbl_extend('keep', vim.diagnostic.config().signs, default_signs)
+
+    return config.text
+end
+
 function M.dump_table(o)
     if type(o) == 'table' then
         local s = '{ '

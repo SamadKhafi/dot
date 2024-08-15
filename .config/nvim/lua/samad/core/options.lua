@@ -53,12 +53,30 @@ vim.o.showtabline = 2
 vim.cmd [[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]]
 
 -- change the diagnostic symbols
-local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
-
-for type, icon in pairs(signs) do
-    local hl = 'DiagnosticSign' .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-end
+vim.diagnostic.config {
+    severity_sort = true,
+    underline = false,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+            [vim.diagnostic.severity.HINT] = ' ',
+        },
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        },
+        numhl = {
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+        },
+    },
+}
 
 local function set_up_highlights()
     local normal = vim.api.nvim_get_hl(0, { name = 'Normal' })
