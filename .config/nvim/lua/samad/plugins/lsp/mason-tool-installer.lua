@@ -12,6 +12,7 @@ return {
                 -- formatters
                 'beautysh',
                 'black',
+                'blade-formatter',
                 'fixjson',
                 'gofumpt',
                 'goimports',
@@ -20,13 +21,15 @@ return {
                 'gotests',
                 'isort',
                 'prettierd',
-                'rustywind',
                 'stylua',
                 'yamlfmt',
 
+                -- formatters & linters
+                'cmakelang',
+                'djlint',
+                'tlint',
+
                 -- linters
-                'cmakelang', -- formatter
-                'djlint', -- formatter
                 'eslint_d',
                 'golangci-lint',
                 'nilaway',
