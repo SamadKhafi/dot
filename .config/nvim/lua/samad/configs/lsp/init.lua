@@ -6,7 +6,7 @@ return {
     enable = {},
 
     -- disabled auto attaching these servers
-    disable = { 'tsserver' },
+    disable = { 'ruff', 'tsserver' },
 
     -- custom configs for lsp servers
     clangd = {

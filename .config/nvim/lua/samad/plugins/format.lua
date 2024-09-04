@@ -75,7 +75,7 @@ return {
                 lua = { 'stylua' },
                 mdx = { 'prettierd', 'prettier', stop_after_first = true },
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
-                python = { 'isort', 'black' },
+                python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
                 scss = { 'prettierd', 'prettier', stop_after_first = true },
                 sh = { 'beautysh' },

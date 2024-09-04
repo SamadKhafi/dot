@@ -11,7 +11,6 @@ return {
             ensure_installed = {
                 -- formatters
                 'beautysh',
-                'black',
                 'blade-formatter',
                 'fixjson',
                 'gofumpt',
@@ -19,7 +18,6 @@ return {
                 'golines',
                 'gomodifytags',
                 'gotests',
-                'isort',
                 'prettierd',
                 'stylua',
                 'yamlfmt',
@@ -27,13 +25,13 @@ return {
                 -- formatters & linters
                 'cmakelang',
                 'djlint',
+                'ruff',
                 'tlint',
 
                 -- linters
                 'eslint_d',
                 'golangci-lint',
                 'nilaway',
-                'pylint',
                 'stylelint',
                 'yamllint',
             },
