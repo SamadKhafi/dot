@@ -16,6 +16,7 @@ $nodejs\
 $rust\
 $golang\
 $php\
+$python\
 $zig\
 """
 
@@ -58,32 +59,36 @@ deleted = " "
 format = '[($ahead_behind$conflicted $untracked$modified$renamed$typechanged$deleted$staged$stashed)]($style)'
 
 [c]
-symbol = ""
-format = '[ $symbol $version(-$name)](fg:blue)'
+symbol = " "
+format = '[ $symbol$version(-$name)](fg:#5e76bf)'
 
 [cmake]
-symbol = "󰔷"
-format = '[ $symbol $version](fg:blue)'
-
-[nodejs]
-symbol = ""
-format = '[ $symbol $version](fg:blue)'
-
-[rust]
-symbol = ""
-format = '[ $symbol $version](fg:blue)'
+symbol = "󰔷 "
+format = '[ $symbol$version](fg:#0bd904)'
 
 [golang]
-symbol = ""
-format = '[ $symbol $version](fg:blue)'
+symbol = " "
+format = '[ $symbol$version](fg:#00add8)'
+
+[nodejs]
+symbol = " "
+format = '[ $symbol$version](fg:#f0db4f)'
 
 [php]
-symbol = ""
-format = '[ $symbol $version](fg:blue)'
+symbol = " "
+format = '[ $symbol$version](fg:#777bb3)'
+
+[python]
+symbol = " "
+format = "[ ${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )](fg:#ffde57)"
+
+[rust]
+symbol = " "
+format = '[ $symbol$version](fg:#ce422b)'
 
 [zig]
-symbol = ""
-format = '[ $symbol $version](fg:blue)'
+symbol = " "
+format = '[ $symbol$version](fg:#f7a41d)'
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]
