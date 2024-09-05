@@ -1,0 +1,14 @@
+[Unit]
+Description=Atuin Daemon Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/atuin daemon
+Restart=on-failure
+WorkingDirectory=%h
+Environment=HOME=%h
+Environment=RUST_LOG=info
+Environment=ATUIN_CONFIG_DIR=%h/.config/atuin
+
+[Install]
+WantedBy=default.target
