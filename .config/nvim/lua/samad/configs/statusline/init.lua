@@ -8,6 +8,7 @@ local Lsp = require 'samad.configs.statusline.lsp'
 local Diagnostics = require 'samad.configs.statusline.diagnostics'
 local Lazy = require 'samad.configs.statusline.lazy'
 local TreeSitter = require 'samad.configs.statusline.treesitter'
+local Venv = require 'samad.configs.statusline.venv'
 
 local Align = { provider = '%=' }
 local Space = { provider = ' ' }
@@ -18,6 +19,7 @@ return {
     Space,
     Space,
     FileNameBlock,
+    Venv,
     Space,
     Space,
     Space,
