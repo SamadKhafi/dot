@@ -17,7 +17,7 @@ return {
             javascript = { 'eslint_d' },
             less = { 'stylelint' },
             php = { 'tlint' },
-            python = { 'ruff' },
+            python = {},
             sass = { 'stylelint' },
             scss = { 'stylelint' },
             svelte = { 'eslint_d' },

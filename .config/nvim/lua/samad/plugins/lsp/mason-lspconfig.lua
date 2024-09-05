@@ -21,7 +21,6 @@ return {
                 'lua_ls',
                 'marksman',
                 'mdx_analyzer',
-                'pylsp',
                 'rust_analyzer',
                 'somesass_ls',
                 'svelte',

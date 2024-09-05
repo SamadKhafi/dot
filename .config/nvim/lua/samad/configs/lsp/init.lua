@@ -3,10 +3,10 @@ local util = require 'lspconfig/util'
 return {
     -- enable these lsp even if mason package
     -- isn't installed
-    enable = {},
+    enable = { 'pylsp', 'ruff' },
 
     -- disabled auto attaching these servers
-    disable = { 'ruff', 'tsserver' },
+    disable = { 'tsserver' },
 
     -- custom configs for lsp servers
     clangd = {
@@ -194,6 +194,22 @@ return {
                         [vim.fn.expand '$VIMRUNTIME/lua'] = true,
                         [vim.fn.stdpath 'config' .. '/lua'] = true,
                     },
+                },
+            },
+        },
+    },
+    pylsp = {
+        settings = {
+            pylsp = {
+                plugins = {
+                    autopep8 = { enabled = false },
+                    flake8 = { enabled = false },
+                    mccabe = { enabled = false },
+                    preload = { enabled = false },
+                    pycodestyle = { enabled = false },
+                    pyflakes = { enabled = false },
+                    pylint = { enabled = false },
+                    yapf = { enabled = false },
                 },
             },
         },

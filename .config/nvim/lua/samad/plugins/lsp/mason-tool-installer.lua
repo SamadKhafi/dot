@@ -25,7 +25,6 @@ return {
                 -- formatters & linters
                 'cmakelang',
                 'djlint',
-                'ruff',
                 'tlint',
 
                 -- linters

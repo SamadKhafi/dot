@@ -33,4 +33,5 @@ return {
     lint = utils.get_highlight('LspInfoBorder').fg,
     format = utils.get_highlight('DiagnosticHint').fg,
     treesitter = utils.get_highlight('DiagnosticOk').fg,
+    venv = utils.get_highlight('DiagnosticOk').fg,
 }
