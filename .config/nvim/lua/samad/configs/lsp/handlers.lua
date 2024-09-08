@@ -20,7 +20,7 @@ local function set_inlay_hints(client)
     -- keymap to toggle inlay hints
     opts.desc = '[UI] Toggle Inlay Hints'
     map('n', '<leader>uh', function()
-        local is_enabled = vim.lsp.inlay_hint.is_enabled(0)
+        local is_enabled = vim.lsp.inlay_hint.is_enabled { bufnr = 0 }
 
         vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
         vim.g.INLAY_HINTS_ENABLED = not is_enabled
