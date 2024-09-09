@@ -27,7 +27,7 @@ return {
                 'tailwindcss',
                 'taplo',
                 'templ',
-                'tsserver',
+                'ts_ls',
                 'typos_lsp',
                 'typst_lsp',
                 'vimls',

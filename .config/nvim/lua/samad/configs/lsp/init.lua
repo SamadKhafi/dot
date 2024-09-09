@@ -6,7 +6,7 @@ return {
     enable = { 'pylsp', 'ruff' },
 
     -- disabled auto attaching these servers
-    disable = { 'tsserver' },
+    disable = { 'ts_ls' },
 
     -- custom configs for lsp servers
     clangd = {
