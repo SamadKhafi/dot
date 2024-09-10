@@ -2,7 +2,7 @@ local conform = require 'conform'
 
 local Formatters = {
     condition = function()
-        return #(conform.list_formatters()) > 0
+        return #(conform.list_formatters_to_run(0)) > 0
     end,
 
     update = { 'BufEnter' },
