@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- inlay hints handler
-local function set_inlay_hints(client)
+local function setup_inlay_hints(client)
     -- skip if not supported by client/server
     if not vim.lsp.inlay_hint or not client.server_capabilities.inlayHintProvider then
         return
@@ -25,6 +25,23 @@ local function set_inlay_hints(client)
         vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
         vim.g.INLAY_HINTS_ENABLED = not is_enabled
     end, opts)
+end
+
+local function setup_codelens(client)
+    if client.server_capabilities.codeLensProvider then
+        -- refresh codelens on lsp attach (now)
+        vim.lsp.codelens.refresh { bufnr = 0 }
+
+        -- auto refresh codelens
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'TextChanged' }, {
+            callback = function()
+                vim.lsp.codelens.refresh { bufnr = 0 }
+            end,
+        })
+
+        -- shortcut to run codelens
+        vim.keymap.set('n', '<leader>lx', vim.lsp.codelens.run, { buffer = 0, silent = true })
+    end
 end
 
 -- default on_attach handler
@@ -80,7 +97,8 @@ local function default_on_attach(client, bufnr) -- client, bufnr
     opts.desc = '[LSP] Information'
     map('n', '<leader>lI', '<cmd>LspInfo<CR>', opts)
 
-    set_inlay_hints(client)
+    setup_inlay_hints(client)
+    setup_codelens(client)
 end
 
 return {
