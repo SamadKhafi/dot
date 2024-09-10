@@ -105,6 +105,19 @@ return {
             })
         end,
     },
+    gopls = {
+        on_attach = function(client, _)
+            -- semantic tokens workaround
+            if not client.server_capabilities.semanticTokensProvider then
+                local semantic = client.config.capabilities.textDocument.semanticTokens
+                client.server_capabilities.semanticTokensProvider = {
+                    full = true,
+                    legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+                    range = true,
+                }
+            end
+        end,
+    },
     svelte = {
         on_attach = function(client, _)
             local svelte_notify = vim.api.nvim_create_augroup('SvelteNotifyTSChange', { clear = true })
