@@ -57,6 +57,30 @@ return {
         local slow_format_filetypes = {}
 
         conform.setup {
+            formatters = {
+                injected = {
+                    options = {
+                        ignore_errors = false,
+                        lang_to_ext = {
+                            bash = 'sh',
+                            c_sharp = 'cs',
+                            elixir = 'exs',
+                            javascript = 'js',
+                            julia = 'jl',
+                            latex = 'tex',
+                            markdown = 'md',
+                            python = 'py',
+                            ruby = 'rb',
+                            rust = 'rs',
+                            teal = 'tl',
+                            typescript = 'ts',
+                        },
+                        lang_to_formatters = {
+                            json = 'jq',
+                        },
+                    },
+                },
+            },
             formatters_by_ft = {
                 astro = { 'prettierd', 'prettier', stop_after_first = true },
                 bash = { 'beautysh' },
@@ -71,9 +95,13 @@ return {
                     return { 'fixjson', first(bufnr, 'prettierd', 'prettier') }
                 end,
                 less = { 'prettierd', 'prettier', stop_after_first = true },
-                markdown = { 'prettierd', 'prettier', stop_after_first = true },
+                markdown = function(bufnr)
+                    return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
+                end,
                 lua = { 'stylua' },
-                mdx = { 'prettierd', 'prettier', stop_after_first = true },
+                mdx = function(bufnr)
+                    return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
+                end,
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 python = {},
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
