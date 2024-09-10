@@ -13,6 +13,11 @@ return {
         capabilities = {
             offsetEncoding = 'utf-8',
         },
+        init_options = {
+            clangdFileStatus = true,
+            completeUnimported = true,
+            usePlaceholders = false,
+        },
     },
     cssls = {
         filetypes = { 'css', 'less', 'sass', 'scss', 'postcss' },
