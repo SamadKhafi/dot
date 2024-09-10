@@ -109,7 +109,7 @@ local TablineCloseButton = {
     Space,
 
     {
-        provider = '',
+        provider = '',
 
         hl = function(self)
             return { fg = fg(self.is_active or self.is_visible) }
