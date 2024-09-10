@@ -80,6 +80,11 @@ return {
                         },
                     },
                 },
+                rustfmt = {
+                    options = {
+                        default_edition = '2021',
+                    },
+                },
             },
             formatters_by_ft = {
                 astro = { 'prettierd', 'prettier', stop_after_first = true },
@@ -104,6 +109,7 @@ return {
                 end,
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 python = {},
+                rust = { 'rustfmt' },
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
                 scss = { 'prettierd', 'prettier', stop_after_first = true },
                 sh = { 'beautysh' },
