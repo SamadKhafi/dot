@@ -64,10 +64,10 @@ vim.diagnostic.config {
             [vim.diagnostic.severity.HINT] = ' ',
         },
         linehl = {
-            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
-            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
-            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
-            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticLineError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticLineWarn',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticLineInfo',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticLineHint',
         },
         numhl = {
             [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
@@ -83,11 +83,24 @@ local function set_up_highlights()
     local normal_float = vim.api.nvim_get_hl(0, { name = 'NormalFloat' })
     local float_border = vim.api.nvim_get_hl(0, { name = 'FloatBorder' })
 
-    float_border['bg'] = normal['bg']
+    float_border.bg = normal.bg
 
     vim.api.nvim_set_hl(0, 'StatusLine', normal_float)
     vim.api.nvim_set_hl(0, 'NormalFloat', normal)
     vim.api.nvim_set_hl(0, 'FloatBorder', float_border)
+
+    -- diagnostic line highlights
+    local blend = require('samad.utils').blend
+    local c_bg = normal.bg
+    local c_error = vim.api.nvim_get_hl(0, { name = 'DiagnosticError' }).fg
+    local c_warn = vim.api.nvim_get_hl(0, { name = 'DiagnosticWarn' }).fg
+    local c_info = vim.api.nvim_get_hl(0, { name = 'DiagnosticInfo' }).fg
+    local c_hint = vim.api.nvim_get_hl(0, { name = 'DiagnosticHint' }).fg
+
+    vim.api.nvim_set_hl(0, 'DiagnosticLineError', { bg = blend(c_error, 0.1, c_bg) })
+    vim.api.nvim_set_hl(0, 'DiagnosticLineWarn', { bg = blend(c_warn, 0.1, c_bg) })
+    vim.api.nvim_set_hl(0, 'DiagnosticLineInfo', { bg = blend(c_info, 0.1, c_bg) })
+    vim.api.nvim_set_hl(0, 'DiagnosticLineHint', { bg = blend(c_hint, 0.1, c_bg) })
 end
 
 vim.api.nvim_create_autocmd('ColorScheme', {
@@ -95,5 +108,3 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     group = vim.api.nvim_create_augroup('ThemeColors', { clear = true }),
     callback = set_up_highlights,
 })
-
-set_up_highlights()
