@@ -1,0 +1,19 @@
+#/usr/bin/bash
+
+input="$1"
+output="$2"
+
+# Usage:
+# magicpdf input output
+#
+# Requirements:
+# - ocrmypdf
+# - jbig2enc
+# - unpaper
+# - pngquant
+#
+# - tesseract-data-eng
+# - tesseract-data-hin
+# - tesseract-data-guj
+
+ocrmypdf -l eng+hin+guj --force-ocr --rotate-pages --deskew --clean --clean-final --pdfa-image-compression jpeg --optimize 3 --jbig2-lossy --jobs 4 "$input" "$output"

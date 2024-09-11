@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+
+# Usage:
+# Set this file as the post-processing script in the simple-scan preferences.
+# No extra arguments needed. Any postprocessing script arguments entered in the
+# preferences will be discarded.
+#
+# Requirements:
+# - simple-scan
+# - imagemagick
+#
+# For reference, at the time of writing the arguments from simple-scan are:
+# $1    - mime-type, eg. application/pdf
+# $2    - whether or not to keep a copy of the original file
+# $3    - the filename
+# $4..N - postprocessing script arguments entered in preferences
+
+filename="$3"
+keep_original="$2"
+output_file="${filename%\.*}_enhanced.pdf"
+ocr_file="${filename%\.*}_ocr.pdf"
+
+/usr/bin/magick -density 300 "$filename" -normalize -contrast-stretch 0x25% -brightness-contrast 5x5 -antialias -compress jpeg -quality 100 "$output_file" &> /tmp/enhance-scan.log
+if [ $? -ne 0 ]; then
+    rm "$output_file"
+    notify-send -i scanner "Scan Enhancer Failed" "See /tmp/enhance-scan.log"
+    exit 1
+fi
+
+if [[ "$keep_original" == "false" ]]; then
+    rm "$filename"
+    mv "$output_file" "$filename"
+    output_file="$filename"
+fi
+
+$HOME/.local/bin/magicpdf "$output_file" "${ocr_file}"
+
+notify-send -i scanner "Scan Enhancer" "Enhanced file ${output_file##*\/}"
