@@ -27,6 +27,8 @@ local function setup_inlay_hints(client)
     end, opts)
 end
 
+local codelens_group = vim.api.nvim_create_augroup('CodeLensRefresh', { clear = true })
+
 local function setup_codelens(client)
     if client.server_capabilities.codeLensProvider then
         -- refresh codelens on lsp attach (now)
@@ -34,6 +36,8 @@ local function setup_codelens(client)
 
         -- auto refresh codelens
         vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'TextChanged' }, {
+            buffer = 0,
+            group = codelens_group,
             callback = function()
                 vim.lsp.codelens.refresh { bufnr = 0 }
             end,
