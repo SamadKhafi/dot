@@ -52,6 +52,9 @@ opt.swapfile = false
 vim.o.showtabline = 2
 vim.cmd [[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]]
 
+-- session options as recommended by rmagatti/auto-session
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
 -- change the diagnostic symbols
 vim.diagnostic.config {
     severity_sort = true,
