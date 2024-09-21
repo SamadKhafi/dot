@@ -12,7 +12,6 @@ config.color_scheme = "tokyonight_night"
 config.font_size = 12.0
 config.line_height = 1.25
 config.freetype_load_target = "Light"
-config.freetype_load_flags = "NO_BITMAP"
 
 config.enable_scroll_bar = false
 config.window_padding = {
