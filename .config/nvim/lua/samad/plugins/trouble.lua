@@ -1,6 +1,10 @@
 return {
     'folke/trouble.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+        'folke/todo-comments.nvim',
+        'nvim-tree/nvim-web-devicons',
+    },
+    cmd = 'Trouble',
     keys = {
         {
             '<leader>x',

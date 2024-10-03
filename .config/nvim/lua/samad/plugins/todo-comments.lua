@@ -1,15 +1,8 @@
 return {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {
-        signs = false,
-        keywords = {
-            WISH = { icon = ' ', color = 'info' },
-            CHORE = { icon = '󰃢 ', color = 'info' },
-        },
-    },
     event = { 'BufReadPre', 'BufNewFile' },
-    cmd = { 'TodoQuickFix', 'TodoLocList', 'TodoTelescope', 'TodoTrouble' },
+    cmd = { 'TodoQuickFix', 'TodoLocList', 'TodoTelescope' },
     keys = {
         {
             '[t',
@@ -25,6 +18,13 @@ return {
             end,
             desc = 'Next todo comment',
         },
-        { '<leader>xt', '<cmd>TodoTrouble<CR>', desc = '[Trouble] Todo' },
+        { '<leader>xt', '<cmd>Trouble todo<CR>', desc = '[Trouble] Todo' },
+    },
+    opts = {
+        signs = false,
+        keywords = {
+            WISH = { icon = ' ', color = 'info' },
+            CHORE = { icon = '󰃢 ', color = 'info' },
+        },
     },
 }
