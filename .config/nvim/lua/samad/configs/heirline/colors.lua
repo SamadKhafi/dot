@@ -28,9 +28,9 @@ return {
     git_del = utils.get_highlight('diffRemoved').fg,
     git_change = utils.get_highlight('diffChanged').fg,
 
-    lazy = utils.get_highlight('LspInfoFiletype').fg,
-    lsp = utils.get_highlight('LspInfoTitle').fg,
-    lint = utils.get_highlight('LspInfoBorder').fg,
+    lazy = utils.get_highlight('Function').fg,
+    lsp = utils.get_highlight('Statement').fg,
+    lint = utils.get_highlight('Constant').fg,
     format = utils.get_highlight('DiagnosticHint').fg,
     treesitter = utils.get_highlight('DiagnosticOk').fg,
     venv = utils.get_highlight('DiagnosticOk').fg,
