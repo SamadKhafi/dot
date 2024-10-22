@@ -137,7 +137,6 @@ return {
             },
             -- sources for autocompletion
             sources = cmp.config.sources {
-                { name = 'codeium' },
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- snippets
                 { name = 'path' }, -- file system paths
@@ -156,7 +155,6 @@ return {
                     symbol_map = {
                         Array = '',
                         Boolean = '',
-                        Codeium = '',
                         Key = '',
                         Namespace = '',
                         Null = '',
@@ -168,7 +166,6 @@ return {
                     before = function(entry, vim_item)
                         local menu_items = {
                             buffer = '[Buffer]',
-                            codeium = '[AI]',
                             luasnip = '[LuaSnip]',
                             nvim_lsp = '[LSP]',
                             path = '[Path]',
