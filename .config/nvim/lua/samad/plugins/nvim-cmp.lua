@@ -194,8 +194,10 @@ return {
         }
 
         -- correct markdown highlighting using treesitter
+        local mddocs = vim.api.nvim_create_augroup('CmpMDDocs', { clear = true })
         vim.api.nvim_create_autocmd('FileType', {
             pattern = 'cmp_docs',
+            group = mddocs,
             callback = function()
                 vim.treesitter.start(0, 'markdown')
             end,
