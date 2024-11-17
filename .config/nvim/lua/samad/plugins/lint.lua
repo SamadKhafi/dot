@@ -14,15 +14,15 @@ return {
             css = { 'stylelint' },
             go = { 'golangcilint' },
             gohtml = { 'djlint' },
-            javascript = { 'eslint_d' },
+            -- javascript = { 'eslint_d' },
             less = { 'stylelint' },
             php = { 'tlint' },
             python = {},
             sass = { 'stylelint' },
             scss = { 'stylelint' },
-            svelte = { 'eslint_d' },
+            -- svelte = { 'eslint_d' },
             templ = { 'golangcilint' },
-            typescript = { 'eslint_d' },
+            -- typescript = { 'eslint_d' },
             yaml = { 'yamllint' },
         }
 

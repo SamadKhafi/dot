@@ -7,7 +7,7 @@ return {
         mason_lspconfig.setup {
             ensure_installed = {
                 'astro',
-                'clangd',
+                -- 'clangd',
                 'cmake',
                 'cssls',
                 'dockerls',
@@ -17,9 +17,9 @@ return {
                 'html',
                 'intelephense',
                 'jsonls',
-                'lemminx',
+                -- 'lemminx',
                 'lua_ls',
-                'marksman',
+                -- 'marksman',
                 'mdx_analyzer',
                 'rust_analyzer',
                 'somesass_ls',

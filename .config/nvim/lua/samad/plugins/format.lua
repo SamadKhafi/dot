@@ -90,14 +90,14 @@ return {
                 astro = { 'prettierd', 'prettier', stop_after_first = true },
                 bash = { 'beautysh' },
                 blade = { 'prettierd', 'prettier', 'blade-formatter', 'tlint', stop_after_first = true },
-                css = { 'prettierd', 'prettier', stop_after_first = true },
+                css = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 go = { 'golines', 'goimports', 'gofumpt' },
                 gohtml = { 'djlint' },
                 html = { 'prettierd', 'prettier', stop_after_first = true },
-                javascript = { 'prettierd', 'prettier', stop_after_first = true },
-                javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+                javascript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                javascriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 json = function(bufnr)
-                    return { 'fixjson', first(bufnr, 'prettierd', 'prettier') }
+                    return { 'fixjson', first(bufnr, 'biome-check', 'prettierd', 'prettier') }
                 end,
                 less = { 'prettierd', 'prettier', stop_after_first = true },
                 markdown = function(bufnr)
@@ -113,10 +113,12 @@ return {
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
                 scss = { 'prettierd', 'prettier', stop_after_first = true },
                 sh = { 'beautysh' },
-                svelte = { 'prettierd', 'prettier', stop_after_first = true },
+                svelte = function(bufnr)
+                    return { 'biome-check', first(bufnr, 'prettierd', 'prettier') }
+                end,
                 templ = { 'templ' },
-                typescript = { 'prettierd', 'prettier', stop_after_first = true },
-                typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+                typescript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                typescriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 typst = { 'typstfmt' },
                 vue = { 'prettierd', 'prettier', stop_after_first = true },
                 yaml = function(bufnr)

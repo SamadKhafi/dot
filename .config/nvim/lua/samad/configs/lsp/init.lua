@@ -3,7 +3,7 @@ local util = require 'lspconfig/util'
 return {
     -- enable these lsp even if mason package
     -- isn't installed
-    enable = { 'pylsp', 'ruff' },
+    enable = { 'biome', 'clangd', 'pylsp', 'ruff' },
 
     -- disabled auto attaching these servers
     disable = { 'ts_ls' },
