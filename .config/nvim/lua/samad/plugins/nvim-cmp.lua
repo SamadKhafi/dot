@@ -8,6 +8,7 @@ return {
         'L3MON4D3/LuaSnip', -- snippet engine
         'saadparwaiz1/cmp_luasnip', -- for autocompletion
         'rafamadriz/friendly-snippets', -- useful snippets
+        'tailwind-tools', -- tailwindcss color highlighting
         'onsails/lspkind.nvim', -- vscode like pictograms
         'https://git.sr.ht/~p00f/clangd_extensions.nvim', -- clangd completion sorting
     },
@@ -16,6 +17,7 @@ return {
         local luasnip = require 'luasnip'
         local lspkind = require 'lspkind'
         local compare = require 'cmp.config.compare'
+        local tailwind = require 'tailwind-tools.cmp'
 
         -- loads vscode style snippets from installed plugins. (e.g. friendly-snippets)
         require('luasnip.loaders.from_vscode').lazy_load()
@@ -164,6 +166,9 @@ return {
                         String = '',
                     },
                     before = function(entry, vim_item)
+                        -- highlight tailwindcss colors
+                        vim_item = tailwind.lspkind_format(entry, vim_item)
+
                         local menu_items = {
                             buffer = '[Buffer]',
                             luasnip = '[LuaSnip]',
