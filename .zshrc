@@ -46,6 +46,5 @@ plugins=(
 
 source $ZSH/init.zsh
 source $ZSH/bindings.zsh
-source $ZSH/bindings.zsh
 source $HOME/.env.zsh
 
