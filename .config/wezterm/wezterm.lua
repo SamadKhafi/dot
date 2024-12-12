@@ -1,5 +1,18 @@
 local wezterm = require("wezterm")
 
+local hashtag = ("#"):byte()
+local function half_color(hex)
+	if hex:byte() == hashtag then
+		hex = hex:sub(2)
+	end
+
+	local r = math.floor(tonumber(hex:sub(1, 2), 16) / 2)
+	local g = math.floor(tonumber(hex:sub(3, 4), 16) / 2)
+	local b = math.floor(tonumber(hex:sub(5, 6), 16) / 2)
+
+	return ("#%02X%02X%02X"):format(r, g, b)
+end
+
 local config = {}
 
 if wezterm.config_builder then
@@ -7,11 +20,21 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
+local font_family = "JetBrains Mono"
+
 config.enable_wayland = true
 config.color_scheme = "tokyonight_night"
 config.font_size = 12.0
 config.line_height = 1.25
 config.freetype_load_target = "Light"
+config.font_rules = {
+	{
+		intensity = "Half",
+		font = wezterm.font(font_family, {
+			foreground = half_color("#c0caf5"),
+		}),
+	},
+}
 
 config.enable_scroll_bar = false
 config.window_padding = {
