@@ -7,6 +7,7 @@ ExecStart=%h/.local/bin/jiotv serve --host=0.0.0.0
 Restart=on-failure
 WorkingDirectory=%h
 Environment=HOME=%h
+Environment=JIOTV_EPG=true
 
 [Install]
 WantedBy=default.target
