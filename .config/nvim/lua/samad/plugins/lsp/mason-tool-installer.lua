@@ -29,7 +29,6 @@ return {
 
                 -- linters
                 'eslint_d',
-                'golangci-lint',
                 'nilaway',
                 'stylelint',
                 'yamllint',

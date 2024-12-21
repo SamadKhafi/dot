@@ -12,7 +12,6 @@ return {
             blade = { 'tlint' },
             cmake = { 'cmakelint' },
             css = { 'stylelint' },
-            go = { 'golangcilint' },
             gohtml = { 'djlint' },
             -- javascript = { 'eslint_d' },
             less = { 'stylelint' },
