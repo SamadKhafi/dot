@@ -45,6 +45,8 @@ config.window_padding = {
 }
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
+config.animation_fps = 120
+config.max_fps = 120
 
 -- tokyonight_night theme for tab bar
 config.colors = {
