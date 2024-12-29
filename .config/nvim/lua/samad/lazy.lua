@@ -20,16 +20,16 @@ require('lazy').setup({
     { import = 'samad.plugins.lsp' },
     { import = 'samad.plugins.dap' },
 }, {
-    install = {
-        colorscheme = { 'tokyonight-night', 'github_dark_dimmed', 'catppuccin-mocha', 'habamax' },
+    change_detection = {
+        enabled = true,
+        notify = false,
     },
     checker = {
         enabled = true,
         notify = false,
     },
-    change_detection = {
-        enabled = true,
-        notify = false,
+    install = {
+        colorscheme = { 'tokyonight-night', 'github_dark_dimmed', 'catppuccin-mocha', 'habamax' },
     },
     performance = {
         rtp = {
