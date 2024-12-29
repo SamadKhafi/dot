@@ -3,13 +3,13 @@ return {
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         'b0o/schemastore.nvim',
-        'hrsh7th/cmp-nvim-lsp',
+        'saghen/blink.cmp',
         { 'antosha417/nvim-lsp-file-operations', config = true },
         { 'folke/neodev.nvim', cond = false, opts = {} },
     },
     config = function()
         local lspconfig = require 'lspconfig'
-        local cmp_nvim_lsp = require 'cmp_nvim_lsp'
+        local blink = require 'blink.cmp'
 
         local configs = require 'samad.configs.lsp'
         local handlers = require 'samad.configs.lsp.handlers'
@@ -22,7 +22,7 @@ return {
         ------------------
 
         -- used to enable autocompletion (assign to every lsp server config)
-        local default_capabilities = cmp_nvim_lsp.default_capabilities()
+        local cmp_capabilities = blink.get_lsp_capabilities()
 
         local additional_capabilities = {
             -- add line folding capabilities (not added by default)
@@ -51,7 +51,7 @@ return {
             },
         }
 
-        local capabilities = vim.tbl_deep_extend('keep', additional_capabilities, default_capabilities)
+        local capabilities = vim.tbl_deep_extend('keep', additional_capabilities, cmp_capabilities)
 
         ---------------
         -- ON ATTACH --
