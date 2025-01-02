@@ -21,6 +21,7 @@ plugins=(
     fast-syntax-highlighting
     fnm
     fzf
+    ghostty
     git
     go
     history-substring-search
