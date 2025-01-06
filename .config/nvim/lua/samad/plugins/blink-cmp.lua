@@ -8,9 +8,11 @@ return {
     opts = {
         appearance = {
             nerd_font_variant = 'normal',
-            use_nvim_cmp_as_default = true,
         },
         completion = {
+            accept = {
+                auto_brackets = { enabled = true },
+            },
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 300,
