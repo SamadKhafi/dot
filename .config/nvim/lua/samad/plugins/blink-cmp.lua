@@ -1,7 +1,7 @@
 return {
     'saghen/blink.cmp',
     dependencies = {
-        'rafamadriz/friendly-snippets', -- useful snippets
+        'rafamadriz/friendly-snippets',                   -- useful snippets
         'https://git.sr.ht/~p00f/clangd_extensions.nvim', -- clangd completion sorting
     },
     version = '*',
@@ -19,16 +19,19 @@ return {
                 window = { border = 'rounded' },
             },
             list = {
-                selection = function(ctx)
-                    return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect'
-                end,
+                selection = {
+                    auto_insert = function(ctx)
+                        return ctx.mode ~= 'cmdline'
+                    end,
+                    preselect = false,
+                },
             },
             menu = {
                 border = 'rounded',
                 draw = {
                     columns = {
-                        { 'label', 'label_description', gap = 1 },
-                        { 'kind_icon', 'kind' },
+                        { 'label',      'label_description', gap = 1 },
+                        { 'kind_icon',  'kind' },
                         { 'source_name' },
                     },
                     components = {
