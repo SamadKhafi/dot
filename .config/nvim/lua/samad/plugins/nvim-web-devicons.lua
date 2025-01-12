@@ -8,6 +8,16 @@ return {
                 color = '#01A1AD',
                 name = 'Typst',
             },
+            proto = {
+                icon = '󰫈',
+                color = '#92f726',
+                name = 'proto',
+            },
+            proto3 = {
+                icon = '󰫈',
+                color = '#f75973',
+                name = 'proto3',
+            },
         },
     },
 }
