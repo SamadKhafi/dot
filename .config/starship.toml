@@ -10,6 +10,7 @@ $character"""
 
 right_format = """
 $git_status\
+$bun\
 $c\
 $cmake\
 $nodejs\
@@ -57,6 +58,10 @@ staged = " "
 renamed = " "
 deleted = " "
 format = '[($ahead_behind$conflicted $untracked$modified$renamed$typechanged$deleted$staged$stashed)]($style)'
+
+[bun]
+symbol = " "
+format = '[ $symbol$version](fg:#fbf0df)'
 
 [c]
 symbol = " "
