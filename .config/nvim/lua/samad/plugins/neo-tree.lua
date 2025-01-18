@@ -162,6 +162,7 @@ return {
         local map = vim.keymap.set -- for conciseness
 
         map('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer' }) -- toggle file explorer
+        map('n', '<C-o>', '<cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer' }) -- toggle file explorer
 
         map('n', '<leader>o', function()
             if vim.bo.filetype:lower() == 'neo-tree' then
