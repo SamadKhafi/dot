@@ -1,4 +1,4 @@
-local util = require 'lspconfig/util'
+local util = require 'samad.configs.lsp.util'
 
 return {
     -- enable these lsp even if mason package
@@ -242,6 +242,14 @@ return {
                     pylint = { enabled = false },
                     yapf = { enabled = false },
                 },
+            },
+        },
+    },
+    svelte = {
+        commands = {
+            MigrateToSvelte5 = {
+                util.migrate_to_svelte_5,
+                description = 'Migrate component to Svelte 5 syntax',
             },
         },
     },
