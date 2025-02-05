@@ -41,7 +41,7 @@ return {
 
         require('lsp_lines').setup()
 
-        if not vim.g.LSP_LINES_ENABLED then
+        if vim.g.LSP_LINES_ENABLED then
             require('lsp_lines').toggle()
         end
     end,
