@@ -7,7 +7,7 @@ return {
     normal_bg = utils.get_highlight('Normal').bg,
     bright_bg = utils.get_highlight('Folded').bg,
     bright_fg = utils.get_highlight('Folded').fg,
-    divider = utils.get_highlight('NeoTreeWinSeparator').fg,
+    divider = utils.get_highlight('WinSeparator').fg,
 
     cyan = utils.get_highlight('Special').fg,
     green = utils.get_highlight('DiffAdded').fg,
