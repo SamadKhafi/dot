@@ -87,7 +87,9 @@ return {
                 },
             },
             formatters_by_ft = {
-                astro = { 'prettierd', 'prettier', stop_after_first = true },
+                astro = function(bufnr)
+                    return { 'biome-check', first(bufnr, 'prettierd', 'prettier') }
+                end,
                 bash = { 'beautysh' },
                 blade = { 'prettierd', 'prettier', 'blade-formatter', 'tlint', stop_after_first = true },
                 css = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
