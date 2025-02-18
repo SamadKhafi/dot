@@ -18,11 +18,10 @@ return {
                 auto_show_delay_ms = 300,
                 window = { border = 'rounded' },
             },
+            ghost_text = { enabled = true },
             list = {
                 selection = {
-                    auto_insert = function(ctx)
-                        return ctx.mode ~= 'cmdline'
-                    end,
+                    auto_insert = false,
                     preselect = false,
                 },
             },
