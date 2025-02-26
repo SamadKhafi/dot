@@ -32,6 +32,14 @@ return {
         -- use markdown treesitter parser for mdx
         vim.treesitter.language.register('markdown', 'markdown.mdx')
 
+        -- use lisp treesitter parser for kicad
+        vim.treesitter.language.register('json', 'kicad.project')
+        vim.treesitter.language.register('commonlisp', 'kicad.schematic')
+        vim.treesitter.language.register('commonlisp', 'kicad.board')
+        vim.treesitter.language.register('commonlisp', 'kicad.symbols')
+        vim.treesitter.language.register('commonlisp', 'kicad.footprint')
+        vim.treesitter.language.register('commonlisp', 'kicad.worksheet')
+
         treesitter.setup {
             -- enable syntax highlighting
             highlight = { enable = true, additional_vim_regex_highlighting = false },
