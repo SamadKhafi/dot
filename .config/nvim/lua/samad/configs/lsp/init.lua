@@ -84,12 +84,6 @@ return {
                     unusedvariable = true,
                     useany = true,
                 },
-                annotations = {
-                    bounds = true,
-                    escape = true,
-                    inline = true,
-                    ['nil'] = true,
-                },
                 codelenses = {
                     run_govulncheck = true,
                     test = true,
