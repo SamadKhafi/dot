@@ -154,7 +154,7 @@ return {
             })
 
             opts.desc = '[CMD] Svelte Migrate to v5'
-            map('n', '\\sm', '<cmd>MigrateToSvelte5<CR>', opts)
+            map('n', '<leader>ms', '<cmd>MigrateToSvelte5<CR>', opts)
         end,
     },
     -- runs for all
