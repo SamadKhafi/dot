@@ -16,6 +16,7 @@ return {
             -- javascript = { 'eslint_d' },
             less = { 'stylelint' },
             php = { 'tlint' },
+            proto = { 'protolint' },
             python = {},
             sass = { 'stylelint' },
             scss = { 'stylelint' },
