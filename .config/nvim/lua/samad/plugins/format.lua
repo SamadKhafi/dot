@@ -110,6 +110,7 @@ return {
                     return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
                 end,
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
+                proto = { 'clang-format', stop_after_first = true },
                 python = {},
                 rust = { 'rustfmt' },
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
