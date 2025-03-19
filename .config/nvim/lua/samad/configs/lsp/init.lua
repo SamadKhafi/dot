@@ -3,13 +3,15 @@ local util = require 'samad.configs.lsp.util'
 return {
     -- enable these lsp even if mason package
     -- isn't installed
-    enable = { 'biome', 'clangd', 'pylsp', 'ruff' },
+    enable = { 'biome', 'clangd', 'protols', 'pylsp', 'ruff' },
 
     -- disabled auto attaching these servers
     disable = { 'ts_ls' },
 
     -- custom configs for lsp servers
     clangd = {
+        -- removed proto filetype from default list.
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
         capabilities = {
             offsetEncoding = 'utf-8',
         },
