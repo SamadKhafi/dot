@@ -241,14 +241,6 @@ return {
             },
         },
     },
-    svelte = {
-        commands = {
-            MigrateToSvelte5 = {
-                util.migrate_to_svelte_5,
-                description = 'Migrate component to Svelte 5 syntax',
-            },
-        },
-    },
     taplo = {
         evenBetterToml = {
             schema = { catalogs = { 'https://www.schemastore.org/api/json/catalog.json' } },
