@@ -6,7 +6,7 @@ return {
     enable = { 'biome', 'clangd', 'protols', 'pylsp', 'ruff' },
 
     -- disabled auto attaching these servers
-    disable = { 'ts_ls' },
+    disable = {},
 
     -- custom configs for lsp servers
     clangd = {
