@@ -109,6 +109,7 @@ return {
                 mdx = function(bufnr)
                     return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
                 end,
+                php = { lsp_format = 'prefer' },
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 proto = { 'clang-format', stop_after_first = true },
                 python = {},
@@ -158,10 +159,10 @@ return {
                 end
 
                 return {
-                    bufnr = bufnr,
-                    timeout_ms = 300,
-                    lsp_format = 'fallback',
-                },
+                        bufnr = bufnr,
+                        timeout_ms = 300,
+                        lsp_format = 'fallback',
+                    },
                     on_format
             end,
             format_after_save = function(bufnr)
