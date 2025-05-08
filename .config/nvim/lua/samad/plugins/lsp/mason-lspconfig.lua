@@ -1,5 +1,5 @@
 return {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     cmd = { 'LspInstall', 'LspUninstall' },
     config = function()
         local mason_lspconfig = require 'mason-lspconfig'
@@ -32,6 +32,7 @@ return {
             },
             -- auto-install configured servers (with lspconfig)
             automatic_install = true, -- not the same as ensure_installed
+            automatic_enable = false,
         }
     end,
 }

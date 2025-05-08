@@ -1,11 +1,11 @@
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
-        'williamboman/mason-lspconfig.nvim',
+        'mason-org/mason-lspconfig.nvim',
         'b0o/schemastore.nvim',
         'saghen/blink.cmp',
         { 'antosha417/nvim-lsp-file-operations', config = true },
-        { 'folke/neodev.nvim', cond = false, opts = {} },
+        { 'folke/neodev.nvim',                   cond = false, opts = {} },
     },
     config = function()
         local lspconfig = require 'lspconfig'
