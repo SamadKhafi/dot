@@ -88,14 +88,6 @@ return {
             local config = {
                 -- provide lsp client (neovim) capabilities to lsp server
                 capabilities = capabilities,
-                -- runs when lsp server attaches to a buffer
-                on_attach = function(client, bufnr)
-                    -- run custom handler
-                    run_on_attach_handler(server, client, bufnr)
-
-                    -- default handler
-                    run_on_attach_handler('*', client, bufnr)
-                end,
                 flags = {
                     debounce_text_changes = 150,
                 },
@@ -114,5 +106,25 @@ return {
 
             ::continue::
         end
+
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('samad.lsp.config', { clear = true }),
+
+            -- runs when lsp server attaches to a buffer
+            callback = function(ev)
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+                if client ~= nil and client.name ~= nil then
+                    local bufnr = ev.buf
+                    local server = client.name
+
+                    -- run custom handler
+                    run_on_attach_handler(server, client, bufnr)
+
+                    -- default handler
+                    run_on_attach_handler('*', client, bufnr)
+                end
+            end
+        })
     end,
 }
