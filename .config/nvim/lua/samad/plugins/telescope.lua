@@ -21,7 +21,7 @@ return {
                 mappings = {
                     i = {
                         ['<C-k>'] = actions.move_selection_previous, -- move to prev result
-                        ['<C-j>'] = actions.move_selection_next, -- move to next result
+                        ['<C-j>'] = actions.move_selection_next,     -- move to next result
                         ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
                     },
                 },
@@ -74,14 +74,12 @@ return {
         map('n', "<leader>f'", '<cmd>Telescope marks<cr>', { desc = '[Find] marks' })
 
         map('n', '<leader>fF', function()
-            require('telescope.builtin').find_files { hidden = true, no_ignore = true }
+            require('telescope.builtin').find_files { hidden = true }
         end, { desc = '[Find] hidden files' })
 
         map('n', '<leader>fW', function()
             require('telescope.builtin').live_grep {
-                additional_args = function(args)
-                    return vim.list_extend(args, { '--hidden', '--no-ignore' })
-                end,
+                additional_args = { '--hidden' },
             }
         end, { desc = '[Find] hidden words' })
     end,
