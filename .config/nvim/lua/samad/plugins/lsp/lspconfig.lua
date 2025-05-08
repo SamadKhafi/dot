@@ -8,7 +8,6 @@ return {
         { 'folke/neodev.nvim',                   cond = false, opts = {} },
     },
     config = function()
-        local lspconfig = require 'lspconfig'
         local blink = require 'blink.cmp'
 
         local configs = require 'samad.configs.lsp'
@@ -110,7 +109,8 @@ return {
             end
 
             -- integrate lsp server with neovim
-            lspconfig[server].setup(config)
+            vim.lsp.config(server, config)
+            vim.lsp.enable(server, true);
 
             ::continue::
         end
