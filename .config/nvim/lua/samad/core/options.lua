@@ -2,7 +2,7 @@ local opt = vim.opt
 
 -- line numbers
 opt.relativenumber = true -- show relative numbers
-opt.number = true -- absolute number on current line
+opt.number = true         -- absolute number on current line
 
 -- tabs and indentation
 opt.tabstop = 4
@@ -30,10 +30,10 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- appearance
 opt.termguicolors = true -- 24bit true colors
-opt.background = 'dark' -- prefer dark colorscheme
-opt.signcolumn = 'yes' -- show sign column, so text doesn't shift
-opt.laststatus = 3 -- single status line for all windows
-opt.cmdheight = 0 -- hide cmdline unless it is needed
+opt.background = 'dark'  -- prefer dark colorscheme
+opt.signcolumn = 'yes'   -- show sign column, so text doesn't shift
+opt.laststatus = 3       -- single status line for all windows
+opt.cmdheight = 0        -- hide cmdline unless it is needed
 
 -- backspace
 opt.backspace = 'indent,eol,start' -- allow backspace on indent, end of line or insert mode start position
@@ -42,8 +42,9 @@ opt.backspace = 'indent,eol,start' -- allow backspace on indent, end of line or 
 opt.clipboard:append 'unnamedplus' -- use system clipboard as default register
 
 -- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+opt.splitright = true    -- split vertical window to the right
+opt.splitbelow = true    -- split horizontal window to the bottom
+opt.splitkeep = 'screen' -- don't move content of current window when split window is created
 
 -- turn off swapfile
 opt.swapfile = false
