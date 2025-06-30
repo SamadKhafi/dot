@@ -92,6 +92,8 @@ return {
                 end,
                 bash = { 'beautysh' },
                 blade = { 'prettierd', 'prettier', 'blade-formatter', 'tlint', stop_after_first = true },
+                c = { lsp_format = 'prefer' },
+                cpp = { lsp_format = 'prefer' },
                 css = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 go = { 'golines', 'goimports', 'gofumpt' },
                 gohtml = { 'djlint' },
