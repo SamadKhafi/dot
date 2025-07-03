@@ -8,6 +8,7 @@ Restart=on-failure
 WorkingDirectory=%h
 Environment=HOME=%h
 Environment=JIOTV_EPG=true
+Environment=JIOTV_DRM=true
 
 [Install]
 WantedBy=default.target
