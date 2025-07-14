@@ -55,6 +55,12 @@ return {
         },
         fuzzy = {
             sorts = {
+                function(a, b) -- deprioritize emmet_ls
+                    if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+                        return
+                    end
+                    return b.client_name == 'emmet_ls'
+                end,
                 'score', -- sort by fuzzy matching score.
                 function(a, b) -- custom sort using clangd `.lsp_score` property.
                     if not a.lsp_score or not b.lsp_score then
