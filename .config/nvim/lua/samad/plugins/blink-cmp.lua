@@ -1,7 +1,7 @@
 return {
     'saghen/blink.cmp',
     dependencies = {
-        'rafamadriz/friendly-snippets',                   -- useful snippets
+        'rafamadriz/friendly-snippets', -- useful snippets
         'https://git.sr.ht/~p00f/clangd_extensions.nvim', -- clangd completion sorting
     },
     version = '*',
@@ -29,8 +29,8 @@ return {
                 border = 'rounded',
                 draw = {
                     columns = {
-                        { 'label',      'label_description', gap = 1 },
-                        { 'kind_icon',  'kind' },
+                        { 'label', 'label_description', gap = 1 },
+                        { 'kind_icon', 'kind' },
                         { 'source_name' },
                     },
                     components = {
@@ -51,6 +51,24 @@ return {
                         },
                     },
                 },
+            },
+        },
+        fuzzy = {
+            sorts = {
+                'score', -- sort by fuzzy matching score.
+                function(a, b) -- custom sort using clangd `.lsp_score` property.
+                    if not a.lsp_score or not b.lsp_score then
+                        return
+                    end
+
+                    if a.lsp_score > b.lsp_score then
+                        return true
+                    elseif a.lsp_score < b.lsp_score then
+                        return false
+                    end
+                end,
+                'sort_text',
+                'label', -- deprioritize entries with leading _ (underscore).
             },
         },
         keymap = { preset = 'enter' },
