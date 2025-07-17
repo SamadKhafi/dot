@@ -114,7 +114,7 @@ return {
                 php = { lsp_format = 'prefer' },
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 proto = { 'clang-format', stop_after_first = true },
-                python = {},
+                python = { 'ruff_format', 'ruff_organize_imports' },
                 rust = { 'rustfmt' },
                 sass = { 'prettierd', 'prettier', stop_after_first = true },
                 scss = { 'prettierd', 'prettier', stop_after_first = true },
