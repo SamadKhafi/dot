@@ -17,7 +17,6 @@ return {
             end,
         },
     },
-    event = { 'VeryLazy', 'BufNewFile' },
     opts = {
         preview = {
             mappings = {
@@ -25,6 +24,7 @@ return {
                 scrollF = '<C-f>',
                 scrollU = '<C-u>',
                 scrollD = '<C-d>',
+    event = 'BufReadPost',
             },
         },
         provider_selector = function(_, filetype, buftype)
