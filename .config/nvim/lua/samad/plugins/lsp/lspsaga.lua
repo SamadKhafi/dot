@@ -20,7 +20,15 @@ return {
 
         local map = vim.keymap.set
 
-        map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { desc = '[LSP] Hover documentation', silent = true })
+        map('n', 'K', function()
+            -- try to peek folded lines,
+            local winid = require('ufo').peekFoldedLinesUnderCursor()
+            if not winid then
+                -- otherwise show hover doc.
+                require('lspsaga.hover'):render_hover_doc()
+            end
+        end, { desc = '[LSP] Hover documentation', silent = true })
+
         map({ 'n', 'v' }, '<leader>la', '<cmd>Lspsaga code_action<CR>', { desc = '[LSP] Code Actions', silent = true })
         map('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', { desc = '[LSP] Rename', silent = true })
         map('n', '<leader>lS', '<cmd>Lspsaga outline<CR>', { desc = '[LSP] Symbols Outline', silent = true })
