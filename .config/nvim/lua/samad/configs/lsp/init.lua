@@ -10,8 +10,6 @@ return {
 
     -- custom configs for lsp servers
     clangd = {
-        -- removed proto filetype from default list.
-        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
         capabilities = {
             offsetEncoding = 'utf-8',
         },
