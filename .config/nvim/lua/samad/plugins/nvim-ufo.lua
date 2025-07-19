@@ -17,36 +17,45 @@ return {
             end,
         },
     },
-    opts = {
-        preview = {
-            mappings = {
-                scrollB = '<C-b>',
-                scrollF = '<C-f>',
-                scrollU = '<C-u>',
-                scrollD = '<C-d>',
     event = 'BufReadPost',
-            },
-        },
-        provider_selector = function(_, filetype, buftype)
-            local function handleFallbackException(bufnr, err, providerName)
-                if type(err) == 'string' and err:match 'UfoFallbackException' then
-                    return require('ufo').getFolds(bufnr, providerName)
-                else
-                    return require('promise').reject(err)
-                end
-            end
+    config = function()
+        local ufo = require 'ufo'
+        local promise = require 'promise'
 
-            return (filetype == '' or buftype == 'nofile') and 'indent' -- only use indent until a file is opened
-                or function(bufnr)
-                    return require('ufo')
-                        .getFolds(bufnr, 'lsp')
-                        :catch(function(err)
-                            return handleFallbackException(bufnr, err, 'treesitter')
-                        end)
-                        :catch(function(err)
-                            return handleFallbackException(bufnr, err, 'indent')
-                        end)
+        ufo.setup {
+            preview = {
+                mappings = {
+                    scrollB = '<C-b>',
+                    scrollF = '<C-f>',
+                    scrollU = '<C-u>',
+                    scrollD = '<C-d>',
+                },
+            },
+            provider_selector = function(bufnr, filetype, buftype)
+                local function handleFallbackException(err, providerName)
+                    if type(err) == 'string' and err:match 'UfoFallbackException' then
+                        return ufo.getFolds(bufnr, providerName)
+                    else
+                        return promise.reject(err)
+                    end
                 end
-        end,
-    },
+
+                return (filetype == '' or buftype == 'nofile') and 'indent' -- only use indent until a file is opened
+                    or function()
+                        return ufo.getFolds(bufnr, 'lsp')
+                            :catch(function(err)
+                                return handleFallbackException(err, 'treesitter')
+                            end)
+                            :catch(function(err)
+                                return handleFallbackException(err, 'indent')
+                            end)
+                    end
+            end,
+        }
+
+        vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+        vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+        vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
+        vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+    end,
 }
