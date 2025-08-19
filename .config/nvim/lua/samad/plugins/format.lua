@@ -123,6 +123,7 @@ return {
                     return { 'biome-check', first(bufnr, 'prettierd', 'prettier') }
                 end,
                 templ = { 'templ' },
+                toml = { lsp_format = 'prefer' },
                 typescript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 typescriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 typst = { 'typstfmt' },
@@ -161,10 +162,10 @@ return {
                 end
 
                 return {
-                        bufnr = bufnr,
-                        timeout_ms = 300,
-                        lsp_format = 'fallback',
-                    },
+                    bufnr = bufnr,
+                    timeout_ms = 300,
+                    lsp_format = 'fallback',
+                },
                     on_format
             end,
             format_after_save = function(bufnr)
