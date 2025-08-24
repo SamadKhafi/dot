@@ -1,4 +1,5 @@
 local conform = require 'conform'
+local formatter_names = require 'samad.configs.names.formatters'
 
 local Formatters = {
     condition = function()
@@ -16,7 +17,11 @@ local Formatters = {
         local names = {}
         for _, formatter in pairs(conform.list_formatters_to_run(0)) do
             if formatter.available then
-                table.insert(names, formatter.name)
+                if formatter_names[formatter.name] ~= nil then
+                    table.insert(names, formatter_names[formatter.name])
+                else
+                    table.insert(names, formatter.name)
+                end
             end
         end
         return '󰃢 ' .. table.concat(names, ', ') .. '  '
