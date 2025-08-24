@@ -356,7 +356,7 @@ return {
     vue_ls = 'Vue',
     wasm_language_tools = 'Wasm',
     wgsl_analyzer = 'WGSL',
-    yamlls = 'Yaml',
+    yamlls = 'YAML',
     yang_lsp = 'Yang',
     yls = 'YLS',
     ziggy = 'Ziggy',
