@@ -110,7 +110,7 @@ return {
                 mdx = function(bufnr)
                     return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
                 end,
-                php = { lsp_format = 'prefer' },
+                php = { 'mago_format', lsp_format = 'first' },
                 postcss = { 'prettierd', 'prettier', stop_after_first = true },
                 proto = { 'clang-format', stop_after_first = true },
                 python = { 'ruff_format', 'ruff_organize_imports' },
