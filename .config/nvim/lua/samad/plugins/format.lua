@@ -28,7 +28,6 @@ return {
                 require('conform').format {
                     bufnr = 0,
                     async = true,
-                    lsp_format = 'fallback',
                     timeout_ms = 1000,
                 }
             end,
@@ -162,10 +161,9 @@ return {
                 end
 
                 return {
-                    bufnr = bufnr,
-                    timeout_ms = 300,
-                    lsp_format = 'fallback',
-                },
+                        bufnr = bufnr,
+                        timeout_ms = 300,
+                    },
                     on_format
             end,
             format_after_save = function(bufnr)
@@ -186,7 +184,7 @@ return {
                     return
                 end
 
-                return { bufnr = bufnr, lsp_format = 'fallback' }
+                return { bufnr = bufnr }
             end,
         }
     end,
