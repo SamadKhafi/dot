@@ -1,5 +1,3 @@
--- local util = require 'samad.configs.lsp.util'
-
 return {
     -- enable these lsp even if mason package
     -- isn't installed

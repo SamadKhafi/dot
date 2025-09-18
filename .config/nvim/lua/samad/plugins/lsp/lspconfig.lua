@@ -5,7 +5,7 @@ return {
         'b0o/schemastore.nvim',
         'saghen/blink.cmp',
         { 'antosha417/nvim-lsp-file-operations', config = true },
-        { 'folke/neodev.nvim',                   cond = false, opts = {} },
+        { 'folke/neodev.nvim', cond = false, opts = {} },
     },
     config = function()
         local blink = require 'blink.cmp'
@@ -102,7 +102,7 @@ return {
 
             -- integrate lsp server with neovim
             vim.lsp.config(server, config)
-            vim.lsp.enable(server, true);
+            vim.lsp.enable(server, true)
 
             ::continue::
         end
@@ -124,7 +124,7 @@ return {
                     -- default handler
                     run_on_attach_handler('*', client, bufnr)
                 end
-            end
+            end,
         })
     end,
 }
