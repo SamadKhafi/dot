@@ -1,5 +1,5 @@
 # CTRL + Space to accept autosuggestion
-bindkey '^ ' autosuggest-accept
+bindkey '^I^I' autosuggest-accept
 
 # Ctrl + N open nvim in current directory
 bindkey -s "^N" "nvim .^M"
