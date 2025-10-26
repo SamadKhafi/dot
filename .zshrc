@@ -2,6 +2,8 @@ export ZSH="$HOME/.config/zsh"
 export ZSH_PLUGINS="$ZSH/plugins"
 export ZSH_PLUGINS_EXTERNAL="$ZSH/external"
 
+source $HOME/.prepare.zsh
+
 source $ZSH/history.zsh
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
