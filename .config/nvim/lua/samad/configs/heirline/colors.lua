@@ -32,6 +32,7 @@ return {
     lsp = utils.get_highlight('Statement').fg,
     lint = utils.get_highlight('Constant').fg,
     format = utils.get_highlight('DiagnosticHint').fg,
+    session = utils.get_highlight('Function').fg,
     treesitter = utils.get_highlight('DiagnosticOk').fg,
     venv = utils.get_highlight('DiagnosticOk').fg,
 }
