@@ -1,0 +1,418 @@
+#compdef mago
+
+autoload -U is-at-least
+
+_mago() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" : \
+'--workspace=[The path to the workspace directory]:WORKSPACE:_files' \
+'--config=[The path to the configuration file]:CONFIG:_files' \
+'--php-version=[The PHP version to use for parsing and analysis]:PHP_VERSION:_default' \
+'--threads=[The number of threads to use for linting, formatting, and analysis]:THREADS:_default' \
+'(--no-color)--colors=[When to use colored output. Can be "auto", "always", or "never"]:COLORS:(auto always never)' \
+'--allow-unsupported-php-version[Allow using an unsupported PHP version]' \
+'--no-color[Do not use colors in the output]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_mago_commands" \
+"*::: :->mago" \
+&& ret=0
+    case $state in
+    (mago)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:mago-command-$line[1]:"
+        case $line[1] in
+            (init)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(config)
+_arguments "${_arguments_options[@]}" : \
+'--show=[Display only a specific section of the configuration]:SHOW:(source linter formatter analyzer)' \
+'--default[Show the default configuration values instead of the current ones]' \
+'--schema[Output JSON schema instead of configuration values]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(list-files)
+_arguments "${_arguments_options[@]}" : \
+'--command=[Display the list of files for a specific command]:COMMAND:(linter formatter analyzer guard)' \
+'-0[Use a NUL byte as the filename terminator]' \
+'--zero-terminate[Use a NUL byte as the filename terminator]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(ast)
+_arguments "${_arguments_options[@]}" : \
+'(--fix)--reporting-target=[Specify where to send the output]:REPORTING_TARGET:(stdout stderr writer)' \
+'(--fix)--reporting-format=[Choose the output format for issue reports]:REPORTING_FORMAT:(rich medium short ariadne github gitlab json count code-count checkstyle emacs sarif)' \
+'(--fix)-m+[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'(--fix)--minimum-fail-level=[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'--minimum-report-level=[Set the minimum issue severity to be shown in the report]:MINIMUM_REPORT_LEVEL:(note help warning error)' \
+'*--retain-code=[Retain only issues with the specified code(s)]:CODE:_default' \
+'--tokens[Show the token stream instead of the AST]' \
+'--json[Output in machine-readable JSON format]' \
+'(--tokens)--names[Show resolved symbol names and their scope information]' \
+'-f[Filter the output to only show issues that can be automatically fixed]' \
+'--fixable-only[Filter the output to only show issues that can be automatically fixed]' \
+'--sort[Sort reported issues by severity level, rule code, and file location]' \
+'(-f --fixable-only)--fix[Apply automatic fixes to the source code where possible]' \
+'--unsafe[Apply fixes that are marked as unsafe]' \
+'--potentially-unsafe[Apply fixes that are marked as potentially unsafe]' \
+'--format-after-fix[Format the fixed files after applying changes]' \
+'-d[Preview fixes without writing any changes to disk]' \
+'--dry-run[Preview fixes without writing any changes to disk]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+':file -- The PHP file to analyze and display:_files' \
+&& ret=0
+;;
+(lint)
+_arguments "${_arguments_options[@]}" : \
+'(--list-rules --sort -f --fixable-only -s --semantics --reporting-target --reporting-format)--explain=[Show detailed documentation for a specific linter rule]:EXPLAIN:_default' \
+'(-s --semantics)*-o+[Run only specific rules, ignoring the configuration file]:ONLY:_default' \
+'(-s --semantics)*--only=[Run only specific rules, ignoring the configuration file]:ONLY:_default' \
+'--baseline=[Specify a baseline file to ignore existing issues]:PATH:_files' \
+'(--fix)--reporting-target=[Specify where to send the output]:REPORTING_TARGET:(stdout stderr writer)' \
+'(--fix)--reporting-format=[Choose the output format for issue reports]:REPORTING_FORMAT:(rich medium short ariadne github gitlab json count code-count checkstyle emacs sarif)' \
+'(--fix)-m+[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'(--fix)--minimum-fail-level=[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'--minimum-report-level=[Set the minimum issue severity to be shown in the report]:MINIMUM_REPORT_LEVEL:(note help warning error)' \
+'*--retain-code=[Retain only issues with the specified code(s)]:CODE:_default' \
+'(--list-rules --explain -o --only)-s[Skip linter rules and only perform basic syntax and semantic validation]' \
+'(--list-rules --explain -o --only)--semantics[Skip linter rules and only perform basic syntax and semantic validation]' \
+'--pedantic[Enable every available linter rule for maximum thoroughness]' \
+'(--explain --sort -f --fixable-only -s --semantics --reporting-target --reporting-format)--list-rules[Show all currently enabled linter rules and their descriptions]' \
+'--json[Output rule information in JSON format]' \
+'--generate-baseline[Generate a new baseline file from current issues]' \
+'--backup-baseline[Create a backup of the existing baseline file before generating a new one]' \
+'(--generate-baseline)--verify-baseline[Check if the baseline file is synchronized with current issues]' \
+'(--generate-baseline --verify-baseline)--fail-on-out-of-sync-baseline[Fail the command when baseline is out of sync, even with no new issues]' \
+'-f[Filter the output to only show issues that can be automatically fixed]' \
+'--fixable-only[Filter the output to only show issues that can be automatically fixed]' \
+'--sort[Sort reported issues by severity level, rule code, and file location]' \
+'(-f --fixable-only)--fix[Apply automatic fixes to the source code where possible]' \
+'--unsafe[Apply fixes that are marked as unsafe]' \
+'--potentially-unsafe[Apply fixes that are marked as potentially unsafe]' \
+'--format-after-fix[Format the fixed files after applying changes]' \
+'-d[Preview fixes without writing any changes to disk]' \
+'--dry-run[Preview fixes without writing any changes to disk]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::path -- Specific files or directories to lint instead of using configuration:_files' \
+&& ret=0
+;;
+(analyze)
+_arguments "${_arguments_options[@]}" : \
+'--baseline=[Specify a baseline file to ignore existing issues]:PATH:_files' \
+'(--fix)--reporting-target=[Specify where to send the output]:REPORTING_TARGET:(stdout stderr writer)' \
+'(--fix)--reporting-format=[Choose the output format for issue reports]:REPORTING_FORMAT:(rich medium short ariadne github gitlab json count code-count checkstyle emacs sarif)' \
+'(--fix)-m+[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'(--fix)--minimum-fail-level=[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'--minimum-report-level=[Set the minimum issue severity to be shown in the report]:MINIMUM_REPORT_LEVEL:(note help warning error)' \
+'*--retain-code=[Retain only issues with the specified code(s)]:CODE:_default' \
+'--no-stubs[Disable built-in PHP and library stubs for analysis]' \
+'--watch[Enable watch mode for continuous analysis]' \
+'--generate-baseline[Generate a new baseline file from current issues]' \
+'--backup-baseline[Create a backup of the existing baseline file before generating a new one]' \
+'(--generate-baseline)--verify-baseline[Check if the baseline file is synchronized with current issues]' \
+'(--generate-baseline --verify-baseline)--fail-on-out-of-sync-baseline[Fail the command when baseline is out of sync, even with no new issues]' \
+'-f[Filter the output to only show issues that can be automatically fixed]' \
+'--fixable-only[Filter the output to only show issues that can be automatically fixed]' \
+'--sort[Sort reported issues by severity level, rule code, and file location]' \
+'(-f --fixable-only)--fix[Apply automatic fixes to the source code where possible]' \
+'--unsafe[Apply fixes that are marked as unsafe]' \
+'--potentially-unsafe[Apply fixes that are marked as potentially unsafe]' \
+'--format-after-fix[Format the fixed files after applying changes]' \
+'-d[Preview fixes without writing any changes to disk]' \
+'--dry-run[Preview fixes without writing any changes to disk]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::path -- Specific files or directories to analyze instead of using configuration:_files' \
+&& ret=0
+;;
+(guard)
+_arguments "${_arguments_options[@]}" : \
+'--baseline=[Specify a baseline file to ignore existing issues]:PATH:_files' \
+'(--fix)--reporting-target=[Specify where to send the output]:REPORTING_TARGET:(stdout stderr writer)' \
+'(--fix)--reporting-format=[Choose the output format for issue reports]:REPORTING_FORMAT:(rich medium short ariadne github gitlab json count code-count checkstyle emacs sarif)' \
+'(--fix)-m+[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'(--fix)--minimum-fail-level=[Set the minimum issue severity that causes the command to fail]:MINIMUM_FAIL_LEVEL:(note help warning error)' \
+'--minimum-report-level=[Set the minimum issue severity to be shown in the report]:MINIMUM_REPORT_LEVEL:(note help warning error)' \
+'*--retain-code=[Retain only issues with the specified code(s)]:CODE:_default' \
+'--no-stubs[Disable built-in PHP and library stubs for checking]' \
+'--generate-baseline[Generate a new baseline file from current issues]' \
+'--backup-baseline[Create a backup of the existing baseline file before generating a new one]' \
+'(--generate-baseline)--verify-baseline[Check if the baseline file is synchronized with current issues]' \
+'(--generate-baseline --verify-baseline)--fail-on-out-of-sync-baseline[Fail the command when baseline is out of sync, even with no new issues]' \
+'-f[Filter the output to only show issues that can be automatically fixed]' \
+'--fixable-only[Filter the output to only show issues that can be automatically fixed]' \
+'--sort[Sort reported issues by severity level, rule code, and file location]' \
+'(-f --fixable-only)--fix[Apply automatic fixes to the source code where possible]' \
+'--unsafe[Apply fixes that are marked as unsafe]' \
+'--potentially-unsafe[Apply fixes that are marked as potentially unsafe]' \
+'--format-after-fix[Format the fixed files after applying changes]' \
+'-d[Preview fixes without writing any changes to disk]' \
+'--dry-run[Preview fixes without writing any changes to disk]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::path -- Specific files or directories to check instead of using configuration:_files' \
+&& ret=0
+;;
+(format)
+_arguments "${_arguments_options[@]}" : \
+'(-c --check -i --stdin-input)-d[Perform a dry run, printing a diff without modifying files]' \
+'(-c --check -i --stdin-input)--dry-run[Perform a dry run, printing a diff without modifying files]' \
+'(-d --dry-run -i --stdin-input)-c[Check if the source files are formatted]' \
+'(-d --dry-run -i --stdin-input)--check[Check if the source files are formatted]' \
+'(-d --dry-run -c --check)-i[Read input from STDIN, format it, and write to STDOUT]' \
+'(-d --dry-run -c --check)--stdin-input[Read input from STDIN, format it, and write to STDOUT]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::path -- Format specific files or directories, overriding the source configuration:_files' \
+&& ret=0
+;;
+(self-update)
+_arguments "${_arguments_options[@]}" : \
+'--tag=[Update to a specific version by providing the version tag]:VERSION_TAG:_default' \
+'-c[Check for updates but do not install them]' \
+'--check[Check for updates but do not install them]' \
+'--no-confirm[Skip confirmation prompts during updates]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(generate-completions)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+':shell -- Select the shell for which the completions are generated:(bash elvish fish powershell zsh)' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+":: :_mago__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:mago-help-command-$line[1]:"
+        case $line[1] in
+            (init)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(config)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(list-files)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(ast)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(lint)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(analyze)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(guard)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(format)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(self-update)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(generate-completions)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_mago_commands] )) ||
+_mago_commands() {
+    local commands; commands=(
+'init:Initialize a new Mago configuration file' \
+'config:Display the effective configuration' \
+'list-files:List all files that will be processed' \
+'ast:Display the abstract syntax tree (AST) of PHP code' \
+'lint:Run linting rules on PHP code' \
+'analyze:Perform static analysis on PHP code' \
+'guard:Enforce architectural rules and layer dependencies' \
+'format:Format PHP code according to style settings' \
+'self-update:Update Mago to the latest version' \
+'generate-completions:Generate shell completions for the given shell' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'mago commands' commands "$@"
+}
+(( $+functions[_mago__analyze_commands] )) ||
+_mago__analyze_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago analyze commands' commands "$@"
+}
+(( $+functions[_mago__ast_commands] )) ||
+_mago__ast_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago ast commands' commands "$@"
+}
+(( $+functions[_mago__config_commands] )) ||
+_mago__config_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago config commands' commands "$@"
+}
+(( $+functions[_mago__format_commands] )) ||
+_mago__format_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago format commands' commands "$@"
+}
+(( $+functions[_mago__generate-completions_commands] )) ||
+_mago__generate-completions_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago generate-completions commands' commands "$@"
+}
+(( $+functions[_mago__guard_commands] )) ||
+_mago__guard_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago guard commands' commands "$@"
+}
+(( $+functions[_mago__help_commands] )) ||
+_mago__help_commands() {
+    local commands; commands=(
+'init:Initialize a new Mago configuration file' \
+'config:Display the effective configuration' \
+'list-files:List all files that will be processed' \
+'ast:Display the abstract syntax tree (AST) of PHP code' \
+'lint:Run linting rules on PHP code' \
+'analyze:Perform static analysis on PHP code' \
+'guard:Enforce architectural rules and layer dependencies' \
+'format:Format PHP code according to style settings' \
+'self-update:Update Mago to the latest version' \
+'generate-completions:Generate shell completions for the given shell' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'mago help commands' commands "$@"
+}
+(( $+functions[_mago__help__analyze_commands] )) ||
+_mago__help__analyze_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help analyze commands' commands "$@"
+}
+(( $+functions[_mago__help__ast_commands] )) ||
+_mago__help__ast_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help ast commands' commands "$@"
+}
+(( $+functions[_mago__help__config_commands] )) ||
+_mago__help__config_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help config commands' commands "$@"
+}
+(( $+functions[_mago__help__format_commands] )) ||
+_mago__help__format_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help format commands' commands "$@"
+}
+(( $+functions[_mago__help__generate-completions_commands] )) ||
+_mago__help__generate-completions_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help generate-completions commands' commands "$@"
+}
+(( $+functions[_mago__help__guard_commands] )) ||
+_mago__help__guard_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help guard commands' commands "$@"
+}
+(( $+functions[_mago__help__help_commands] )) ||
+_mago__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help help commands' commands "$@"
+}
+(( $+functions[_mago__help__init_commands] )) ||
+_mago__help__init_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help init commands' commands "$@"
+}
+(( $+functions[_mago__help__lint_commands] )) ||
+_mago__help__lint_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help lint commands' commands "$@"
+}
+(( $+functions[_mago__help__list-files_commands] )) ||
+_mago__help__list-files_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help list-files commands' commands "$@"
+}
+(( $+functions[_mago__help__self-update_commands] )) ||
+_mago__help__self-update_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago help self-update commands' commands "$@"
+}
+(( $+functions[_mago__init_commands] )) ||
+_mago__init_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago init commands' commands "$@"
+}
+(( $+functions[_mago__lint_commands] )) ||
+_mago__lint_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago lint commands' commands "$@"
+}
+(( $+functions[_mago__list-files_commands] )) ||
+_mago__list-files_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago list-files commands' commands "$@"
+}
+(( $+functions[_mago__self-update_commands] )) ||
+_mago__self-update_commands() {
+    local commands; commands=()
+    _describe -t commands 'mago self-update commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_mago" ]; then
+    _mago "$@"
+else
+    compdef _mago mago
+fi
