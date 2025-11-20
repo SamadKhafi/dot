@@ -71,6 +71,8 @@ return {
     lslint = 'LSLint',
     luac = 'LuaC',
     luacheck = 'LuaCheck',
+    mago_lint = 'Mago Lint',
+    mago_analyze = 'Mago Analyze',
     markdownlint = 'MarkdownLint',
     ['markdownlint-cli2'] = 'MarkdownLint2',
     markuplint = 'MarkupLint',
