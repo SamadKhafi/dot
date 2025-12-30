@@ -22,8 +22,5 @@ return {
                 },
             },
         }
-
-        -- C/C++ switch between header and source files
-        vim.keymap.set('n', 'gh', '<cmd>ClangdSwitchSourceHeader<cr>', { desc = 'Switch to header or source' })
     end,
 }

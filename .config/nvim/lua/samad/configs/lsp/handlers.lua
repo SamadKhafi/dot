@@ -127,6 +127,12 @@ return {
             })
         end,
     },
+    clangd = {
+        on_attach = function(_, bufnr)
+            -- C/C++ switch between header and source files
+            vim.keymap.set('n', 'gh', '<cmd>LspClangdSwitchSourceHeader<CR>', { buffer = bufnr, desc = '[GoTo] Header / Source' })
+        end,
+    },
     gopls = {
         on_attach = function(client, _)
             -- semantic tokens workaround
