@@ -8,6 +8,7 @@ return {
 
     -- custom configs for lsp servers
     clangd = {
+        cmd = { 'clangd', '--query-driver=**/bin/gcc,**/bin/gcc-*,**/bin/*-gcc' },
         capabilities = {
             offsetEncoding = 'utf-8',
         },
