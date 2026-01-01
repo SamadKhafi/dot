@@ -135,6 +135,7 @@ return {
             },
             default_format_opts = {
                 lsp_format = 'fallback',
+                timeout_ms = 1000,
             },
             format_on_save = function(bufnr)
                 if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
@@ -161,10 +162,9 @@ return {
                 end
 
                 return {
-                        bufnr = bufnr,
-                        timeout_ms = 300,
-                    },
-                    on_format
+                    bufnr = bufnr,
+                    timeout_ms = 300,
+                }, on_format
             end,
             format_after_save = function(bufnr)
                 if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
@@ -184,7 +184,7 @@ return {
                     return
                 end
 
-                return { bufnr = bufnr }
+                return { bufnr = bufnr, timeout_ms = 1000 }
             end,
         }
     end,
