@@ -1,3 +1,7 @@
+-- enable these lsp even if mason package
+-- isn't installed
+local enable = { 'biome', 'clangd', 'protols', 'pylsp', 'ruff' }
+
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -9,8 +13,6 @@ return {
     },
     config = function()
         local blink = require 'blink.cmp'
-
-        local configs = require 'samad.configs.lsp'
         local handlers = require 'samad.configs.lsp.handlers'
 
         -- enable border around lsp windows
@@ -76,14 +78,9 @@ return {
         local servers = require('mason-lspconfig').get_installed_servers()
 
         -- always setup these servers
-        vim.list_extend(servers, configs.enable)
+        vim.list_extend(servers, enable)
 
         for _, server in pairs(servers) do
-            -- skip disabled servers
-            if vim.tbl_contains(configs.disable, server) then
-                goto continue
-            end
-
             -- default configs
             local config = {
                 -- provide lsp client (neovim) capabilities to lsp server
@@ -93,18 +90,9 @@ return {
                 },
             }
 
-            -- extend default configs with custom configs
-            if type(configs[server] or false) == 'function' then
-                configs[server](config)
-            elseif type(configs[server] or false) == 'table' then
-                config = vim.tbl_deep_extend('keep', configs[server], config)
-            end
-
             -- integrate lsp server with neovim
             vim.lsp.config(server, config)
             vim.lsp.enable(server, true)
-
-            ::continue::
         end
 
         vim.api.nvim_create_autocmd('LspAttach', {
