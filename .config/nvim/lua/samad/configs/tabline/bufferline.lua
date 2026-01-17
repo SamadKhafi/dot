@@ -8,9 +8,8 @@ local function bg(selected)
     return selected and 'normal_bg' or 'bg'
 end
 
-local Space = {
-    provider = ' ',
-}
+local Align = { provider = '%=' }
+local Space = { provider = ' ' }
 
 -- we redefine the filename component, as we probably only want the tail and not the relative path
 local TablineFileName = {
@@ -150,4 +149,29 @@ local BufferLine = utils.make_buflist(
     { provider = '', hl = { fg = 'gray', bg = 'bg' } } -- right truncation also optional (defaults to ...... yep, ">")
 )
 
-return BufferLine
+-- index of current buffer and total open buffers
+local BufferIndex = {
+    condition = function()
+        return vim.fn.len(vim.fn.getbufinfo { buflisted = 1 }) > 0
+    end,
+
+    provider = function(_)
+        local bufnr = vim.api.nvim_get_current_buf()
+        local index = 0
+
+        for i, buffer in ipairs(vim.fn.getbufinfo { buflisted = 1 }) do
+            if buffer.bufnr == bufnr then
+                index = i
+                break
+            end
+        end
+
+        if index > 0 then
+            return index .. ' / ' .. vim.fn.len(vim.fn.getbufinfo { buflisted = 1 })
+        end
+    end,
+
+    hl = { fg = 'cyan', bg = 'bg' },
+}
+
+return { BufferLine, Align, BufferIndex }
