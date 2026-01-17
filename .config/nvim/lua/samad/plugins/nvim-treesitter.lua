@@ -7,7 +7,7 @@ return {
         'windwp/nvim-ts-autotag',
     },
     config = function()
-        local treesitter = require 'nvim-treesitter.configs'
+        local treesitter = require 'nvim-treesitter.config'
         local commentstring = require 'ts_context_commentstring'
 
         -- use bash treesitter parser for zsh
