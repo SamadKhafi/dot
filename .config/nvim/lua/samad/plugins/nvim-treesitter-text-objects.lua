@@ -52,13 +52,13 @@ return {
                     enable = true,
                     swap_next = {
                         ['<leader>]a'] = '@parameter.inner', -- swap parameters/argument with next
-                        ['<leader>]:'] = '@property.outer',  -- swap object property with next
-                        ['<leader>]m'] = '@function.outer',  -- swap function with next
+                        ['<leader>]:'] = '@property.outer', -- swap object property with next
+                        ['<leader>]m'] = '@function.outer', -- swap function with next
                     },
                     swap_previous = {
                         ['<leader>[a'] = '@parameter.inner', -- swap parameters/argument with prev
-                        ['<leader>[:'] = '@property.outer',  -- swap object property with prev
-                        ['<leader>[m'] = '@function.outer',  -- swap function with previous
+                        ['<leader>[:'] = '@property.outer', -- swap object property with prev
+                        ['<leader>[m'] = '@function.outer', -- swap function with previous
                     },
                 },
                 move = {
