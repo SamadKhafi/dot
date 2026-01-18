@@ -20,7 +20,6 @@ return {
             'csv',
             'dockerfile',
             'git_config',
-            'gitcommit',
             'gitignore',
             'glsl',
             'go',
