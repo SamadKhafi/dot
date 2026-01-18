@@ -24,7 +24,7 @@ return {
                 'taplo',
                 'templ',
                 'tinymist',
-                'vtsls',
+                'tsgo',
                 'typos_lsp',
                 'vimls',
                 'yamlls',
