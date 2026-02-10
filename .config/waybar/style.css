@@ -63,6 +63,14 @@ tooltip label {
 	color: #f1f2f5;
 }
 
+#custom-notification {
+	font-size: 14px;
+	font-weight: 500;
+	color: #f1f2f5;
+	margin: 0;
+	padding: 0 8px 0 4px;
+}
+
 .modules-left > widget:first-child > #workspaces {
 	margin-left: 0;
 }
