@@ -5,6 +5,7 @@ return {
                 shadow = true,
                 unusedvariable = true,
                 useany = true,
+                ST1000 = false,
             },
             codelenses = {
                 run_govulncheck = true,
