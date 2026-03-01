@@ -1,42 +1,46 @@
 * {
-	font-size: 16px;
-	min-height: 0;
-	padding: 1px 6px 1px 2px;
+  font-size: 16px;
+  min-height: 0;
+  /* padding: 1px 6px 1px 2px; */
 }
 
 window#waybar {
-	background: rgba(255, 255, 255, 0.15);
-	color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0.15);
+  color: rgb(0, 0, 0);
 }
 
 tooltip {
-	background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 tooltip label {
-	color: #ecf0f1;
-	font-weight: 500;
+  color: #ecf0f1;
+  font-weight: 500;
+}
+
+#workspaces {
+  padding: 8px 12px;
 }
 
 #workspaces button {
-	padding: 0 2px;
-	background: transparent;
-	color: rgba(255, 255, 255, 0.5);
+  padding: 0 4px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #workspaces button.active {
-	color: rgba(054, 234, 068, 0.8);
+  color: rgba(54, 234, 68, 0.8);
 }
 
 #mode,
 #clock,
 #battery {
-	padding: 0 10px;
+  padding: 0 10px;
 }
 
 #mode {
-	background: #64727d;
-	border-bottom: 3px solid white;
+  background: #64727d;
+  border-bottom: 3px solid white;
 }
 
 #clock,
@@ -55,103 +59,108 @@ tooltip label {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-	font-size: 15px;
-	font-weight: 500;
-	margin: 4px;
-	padding-left: 4px;
-	padding-right: 4px;
-	color: #f1f2f5;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #f1f2f5;
 }
 
 #custom-notification {
-	font-size: 14px;
-	font-weight: 500;
-	color: #f1f2f5;
-	margin: 0;
-	padding: 0 8px 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f1f2f5;
+  margin: 0;
+  padding: 0 8px 0 4px;
 }
 
 .modules-left > widget:first-child > #workspaces {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 .modules-right > widget:last-child > #workspaces {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 #clock {
-	font-size: 14px;
-	font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#battery {
+  padding: 6px 8px;
+  margin: 0;
 }
 
 #battery icon {
-	color: red;
+  color: red;
 }
 
 #battery.charging,
 #battery.plugged {
-	color: #ffffff;
-	background-color: #26a65b;
+  color: #ffffff;
+  background-color: #26a65b;
 }
 
 @keyframes blink {
-	to {
-		background-color: #ffffff;
-		color: #000000;
-	}
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
 
 #battery.warning:not(.charging) {
-	background-color: #f53c3c;
-	color: #ffffff;
-	animation-name: blink;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #battery.critical:not(.charging) {
-	background-color: #f53c3c;
-	color: #ffffff;
-	animation-name: blink;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 label:focus {
-	background-color: #000000;
+  background-color: #000000;
 }
 
 #network.disconnected {
-	background-color: #f53c3c;
+  background-color: #f53c3c;
 }
 
 #temperature.critical {
-	background-color: #eb4d4b;
+  background-color: #eb4d4b;
 }
 
 #idle_inhibitor.activated {
-	background-color: #ecf0f1;
-	color: #2d3436;
+  background-color: #ecf0f1;
+  color: #2d3436;
 }
 
 #tray > .passive {
-	-gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-	-gtk-icon-effect: highlight;
-	background-color: #eb4d4b;
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
 }
 
 #custom-os_button {
-	font-size: 32px;
-	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-size: 32px;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 #custom-os_button:hover {
-	background: white;
-	color: black;
+  background: white;
+  color: black;
 }

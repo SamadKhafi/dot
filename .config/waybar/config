@@ -14,11 +14,9 @@
       "tray",
       "mpd",
       "temperature",
-      "cpu",
-      "memory",
+      "backlight",
       "network",
       "pulseaudio",
-      "backlight",
       "battery",
       "battery#bat2",
       "custom/notification"
@@ -29,10 +27,10 @@
       "all-outputs": true,
       "sort-by-number": true,
       "format-icons": {
-        "1": "",
-        "2": "",
-        "active": "",
-        "default": ""
+        "1": " ",
+        "2": " ",
+        "active": " ",
+        "default": " "
       }
     },
     "clock": {
@@ -83,27 +81,21 @@
         ""
       ]
     },
-    "cpu": {
-      "format": "  {usage}%"
-    },
-    "memory": {
-      "format": "  {}%"
-    },
     "network": {
-      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-wifi": "",
       "format-ethernet": "  {ifname}",
       "tooltip-format": "  {ifname} via {gwaddr}",
       "format-linked": "  {ifname} (No IP)",
       "format-disconnected": "Disconnected ⚠ {ifname}",
-      "format-alt": "  {ifname}: {ipaddr}/{cidr}"
+      "format-alt": "   {essid}"
     },
     "pulseaudio": {
       "scroll-step": 5,
-      "format": "{icon}  {volume}%   {format_source}",
+      "format": "{icon}   {volume}%   {format_source}",
       "format-bluetooth": "󰂰  {icon} {volume}% {format_source}",
       "format-bluetooth-muted": "  {icon} {format_source}",
       "format-muted": "  {format_source}",
-      "format-source": " {volume}%",
+      "format-source": "",
       "format-source-muted": " ",
       "format-icons": {
         "default": [
@@ -118,15 +110,15 @@
     "backlight": {
       "format": "{icon} {percent}%",
       "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
       ]
     },
     "battery": {
@@ -134,16 +126,16 @@
         "warning": 30,
         "critical": 15
       },
-      "format": "{icon} {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{icon} {time}",
+      "format": "{icon}  {capacity}%",
+      "format-charging": "  {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{icon}  {time}",
       "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
       ]
     },
     "battery#bat2": {
