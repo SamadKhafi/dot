@@ -167,7 +167,7 @@ local BufferIndex = {
         end
 
         if index > 0 then
-            return index .. ' / ' .. vim.fn.len(vim.fn.getbufinfo { buflisted = 1 })
+            return index .. ' / ' .. vim.fn.len(vim.fn.getbufinfo { buflisted = 1 }) .. ' '
         end
     end,
 
