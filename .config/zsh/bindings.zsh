@@ -11,5 +11,11 @@ bindkey -s "^G" "lazygit^M"
 # Ctrl + D to open LazyDocker
 bindkey -s "^D" "lazydocker^M"
 
+# Ctrl + B to open bottom
+bindkey -s "^B" "btm^M"
+
+# Ctrl + Y to open yazi
+bindkey -s "^Y" "yazi^M"
+
 # Ctrl + F to search shell history using atuin
 bindkey '^f' atuin-search
