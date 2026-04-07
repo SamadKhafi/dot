@@ -31,20 +31,22 @@ local codelens_group = vim.api.nvim_create_augroup('CodeLensRefresh', { clear = 
 
 local function setup_codelens(client)
     if client.server_capabilities.codeLensProvider then
-        -- refresh codelens on lsp attach (now)
-        vim.lsp.codelens.refresh { bufnr = 0 }
+        -- enable codelens on lsp attach
+        vim.lsp.codelens.enable(true, { client_id = client.id })
 
         -- auto refresh codelens
-        vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave', 'TextChanged' }, {
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
             buffer = 0,
             group = codelens_group,
-            callback = function()
-                vim.lsp.codelens.refresh { bufnr = 0 }
+            callback = function(event)
+                vim.lsp.codelens.enable(true, { bufnr = event.buf })
             end,
         })
 
         -- shortcut to run codelens
-        vim.keymap.set('n', '<leader>lx', vim.lsp.codelens.run, { buffer = 0, silent = true })
+        vim.keymap.set('n', '<leader>lx', function()
+            vim.lsp.codelens.run { bufnr = 0 }
+        end, { buffer = 0, silent = true })
     end
 end
 
