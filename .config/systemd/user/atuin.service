@@ -3,7 +3,7 @@ Description=Atuin Daemon Service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/atuin daemon
+ExecStart=/usr/bin/atuin daemon start
 Restart=on-failure
 WorkingDirectory=%h
 Environment=HOME=%h
