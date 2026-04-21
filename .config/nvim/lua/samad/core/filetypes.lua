@@ -11,3 +11,14 @@ vim.filetype.add { extension = { kicad_pcb = 'kicad.board' } }
 vim.filetype.add { extension = { kicad_sym = 'kicad.symbols' } }
 vim.filetype.add { extension = { kicad_mod = 'kicad.footprint' } }
 vim.filetype.add { extension = { kicad_wks = 'kicad.worksheet' } }
+
+-- add go template filetypes
+vim.filetype.add { extension = { gohtml = 'gotmpl' } }
+vim.filetype.add {
+    extension = { gotmpl = 'gotmpl' },
+    pattern = {
+        ['.*/templates/.*%.tpl'] = 'helm',
+        ['.*/templates/.*%.ya?ml'] = 'helm',
+        ['helmfile.*%.ya?ml'] = 'helm',
+    },
+}
