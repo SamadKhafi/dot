@@ -97,6 +97,7 @@ return {
                 go = { 'golines', 'goimports', 'gofumpt' },
                 gohtml = { 'djlint' },
                 html = { 'prettierd', 'prettier', stop_after_first = true },
+                http = { 'kulala-fmt' },
                 javascript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 javascriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 json = function(bufnr)
