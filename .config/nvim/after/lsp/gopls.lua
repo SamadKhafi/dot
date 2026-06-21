@@ -1,5 +1,8 @@
 return {
     filetypes = { 'go', 'gomod', 'gowork' },
+    init_options = {
+        semanticTokens = true,
+    },
     settings = {
         gopls = {
             analyses = {
