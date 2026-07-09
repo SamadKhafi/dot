@@ -60,6 +60,18 @@ hl.bind(mod .. ' + L', hl.dsp.focus { direction = 'right' })
 hl.bind(mod .. ' + K', hl.dsp.focus { direction = 'up' })
 hl.bind(mod .. ' + J', hl.dsp.focus { direction = 'down' })
 
+hl.bind(mod .. ' + TAB', hl.dsp.window.cycle_next())
+hl.bind(mod .. ' + TAB', hl.dsp.window.bring_to_top())
+
+hl.bind(mod .. ' + SHIFT + LEFT', hl.dsp.window.move { direction = 'left' })
+hl.bind(mod .. ' + SHIFT + RIGHT', hl.dsp.window.move { direction = 'right' })
+hl.bind(mod .. ' + SHIFT + UP', hl.dsp.window.move { direction = 'up' })
+hl.bind(mod .. ' + SHIFT + DOWN', hl.dsp.window.move { direction = 'down' })
+hl.bind(mod .. ' + SHIFT + H', hl.dsp.window.move { direction = 'left' })
+hl.bind(mod .. ' + SHIFT + L', hl.dsp.window.move { direction = 'right' })
+hl.bind(mod .. ' + SHIFT + K', hl.dsp.window.move { direction = 'up' })
+hl.bind(mod .. ' + SHIFT + J', hl.dsp.window.move { direction = 'down' })
+
 -- Switch workspaces with mod + [0-9]
 -- Move active window to a workspace with mod + SHIFT + [0-9]
 for i = 1, 10 do
