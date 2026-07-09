@@ -1,0 +1,31 @@
+---------------
+---- INPUT ----
+---------------
+
+hl.config {
+    input = {
+        kb_layout = 'us,in',
+        kb_variant = ',guj-kagapa',
+        -- kb_model = '',
+        kb_options = 'grp:alt_space_toggle',
+        -- kb_rules = '',
+        numlock_by_default = true,
+
+        follow_mouse = 1,
+
+        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+
+        touchpad = {
+            natural_scroll = false,
+        },
+    },
+}
+
+hl.gesture {
+    fingers = 3,
+    direction = 'horizontal',
+    action = 'workspace',
+}
+
+-- TODO: migrate this to lua config.
+-- cursor:no_hardware_cursors = 0
