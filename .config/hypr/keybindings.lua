@@ -40,8 +40,8 @@ hl.bind(mod .. ' + W', hl.dsp.exec_cmd(lock))
 
 hl.bind(mod .. ' + Q', hl.dsp.window.close())
 hl.bind(mod .. ' + D', hl.dsp.window.float { action = 'toggle' })
-hl.bind(mod .. ' + F', hl.dsp.window.fullscreen { mode = 'fullscreen', action = 'set' })
-hl.bind(mod .. ' + SHIFT + F', hl.dsp.window.fullscreen { mode = 'fullscreen', action = 'unset' })
+hl.bind(mod .. ' + F', hl.dsp.window.fullscreen { mode = 'maximized', action = 'toggle' })
+hl.bind(mod .. ' + SHIFT + F', hl.dsp.window.fullscreen { mode = 'fullscreen', action = 'toggle' })
 hl.bind(mod .. ' + I', hl.dsp.layout 'togglesplit') -- dwindle only
 
 -- color picker & screenshot keybindings
