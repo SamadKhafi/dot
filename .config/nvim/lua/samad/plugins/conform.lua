@@ -86,50 +86,42 @@ return {
                 },
             },
             formatters_by_ft = {
-                astro = function(bufnr)
-                    return { 'biome-check', first(bufnr, 'prettierd', 'prettier') }
-                end,
+                astro = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 bash = { 'beautysh' },
                 blade = { 'prettierd', 'prettier', 'blade-formatter', 'tlint', stop_after_first = true },
                 c = { lsp_format = 'prefer' },
                 cpp = { lsp_format = 'prefer' },
-                css = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                css = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 go = { 'golines', 'goimports', 'gofumpt' },
                 gohtml = { 'djlint' },
-                html = { 'prettierd', 'prettier', stop_after_first = true },
+                html = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
                 http = { 'kulala-fmt' },
-                javascript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
-                javascriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                javascript = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                javascriptreact = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 json = function(bufnr)
-                    return { 'fixjson', first(bufnr, 'biome-check', 'prettierd', 'prettier') }
+                    return { 'fixjson', first(bufnr, 'oxfmt', 'biome-check', 'prettierd', 'prettier') }
                 end,
                 less = { 'prettierd', 'prettier', stop_after_first = true },
-                markdown = function(bufnr)
-                    return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
-                end,
                 lua = { 'stylua' },
-                mdx = function(bufnr)
-                    return { first(bufnr, 'prettierd', 'prettier'), 'injected' }
-                end,
+                markdown = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
+                mdx = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
                 php = { 'mago_format', lsp_format = 'first' },
-                postcss = { 'prettierd', 'prettier', stop_after_first = true },
+                postcss = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
                 proto = { 'clang-format', stop_after_first = true },
                 python = { 'ruff_format', 'ruff_organize_imports' },
                 rust = { 'rustfmt' },
-                sass = { 'prettierd', 'prettier', stop_after_first = true },
-                scss = { 'prettierd', 'prettier', stop_after_first = true },
+                sass = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
+                scss = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
                 sh = { 'beautysh' },
-                svelte = function(bufnr)
-                    return { 'biome-check', first(bufnr, 'prettierd', 'prettier') }
-                end,
+                svelte = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 templ = { 'templ' },
-                toml = { lsp_format = 'prefer' },
-                typescript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
-                typescriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                toml = { 'oxfmt', lsp_format = 'prefer' },
+                typescript = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                typescriptreact = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 typst = { 'typstfmt' },
-                vue = { 'prettierd', 'prettier', stop_after_first = true },
+                vue = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
                 yaml = function(bufnr)
-                    return { 'yamlfmt', first(bufnr, 'prettierd', 'prettier') }
+                    return { 'yamlfmt', first(bufnr, 'oxfmt', 'prettierd', 'prettier') }
                 end,
                 zsh = { 'beautysh' },
                 ['_'] = { 'trim_newlines', 'trim_whitespace' }, -- on files that doesn't have formatters
