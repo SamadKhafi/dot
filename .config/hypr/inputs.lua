@@ -27,5 +27,10 @@ hl.gesture {
     action = 'workspace',
 }
 
--- TODO: migrate this to lua config.
--- cursor:no_hardware_cursors = 0
+hl.config {
+    cursor = {
+        -- use hardware cursor when possible,
+        -- fixes default/second cursor stuck on nvidia GPUs.
+        no_hardware_cursors = 0,
+    },
+}
