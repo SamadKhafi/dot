@@ -62,7 +62,7 @@ hl.config {
             range = 30,
             render_power = 5,
             offset = { 0, 5 },
-            color = 0x70000000,
+            color = '#00000070',
         },
 
         blur = {
