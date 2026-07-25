@@ -43,6 +43,7 @@ hl.bind(mod .. ' + D', hl.dsp.window.float { action = 'toggle' })
 hl.bind(mod .. ' + F', hl.dsp.window.fullscreen { mode = 'maximized', action = 'toggle' })
 hl.bind(mod .. ' + SHIFT + F', hl.dsp.window.fullscreen { mode = 'fullscreen', action = 'toggle' })
 hl.bind(mod .. ' + I', hl.dsp.layout 'togglesplit') -- dwindle only
+hl.bind(mod .. ' + SHIFT + B', hl.dsp.exec_cmd 'dms ipc call bar toggle index 0')
 
 -- color picker & screenshot keybindings
 hl.bind(mod .. ' + C', hl.dsp.exec_cmd 'dms color pick --autocopy')
