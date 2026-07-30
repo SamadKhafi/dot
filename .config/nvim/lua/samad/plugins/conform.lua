@@ -101,6 +101,9 @@ return {
                 json = function(bufnr)
                     return { 'fixjson', first(bufnr, 'oxfmt', 'biome-check', 'prettierd', 'prettier') }
                 end,
+                jsonc = function(bufnr)
+                    return { 'fixjson', first(bufnr, 'oxfmt', 'biome-check', 'prettierd', 'prettier') }
+                end,
                 less = { 'prettierd', 'prettier', stop_after_first = true },
                 lua = { 'stylua' },
                 markdown = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
