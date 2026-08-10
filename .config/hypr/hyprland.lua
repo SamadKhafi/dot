@@ -15,10 +15,8 @@ hl.monitor { output = 'eDP-1', mode = '1920x1080@120', position = 'auto', scale 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
 hl.on('hyprland.start', function()
-    hl.exec_cmd '/usr/lib/hyprpolkitagent/hyprpolkitagent'
     hl.exec_cmd 'dms run -d'
     hl.exec_cmd 'valent --gapplication-service'
-    hl.exec_cmd 'bash -c "wl-paste --watch cliphist store &"'
     hl.exec_cmd 'hyprctl setcursor MacTahoe-dark-cursors 24'
 end)
 
