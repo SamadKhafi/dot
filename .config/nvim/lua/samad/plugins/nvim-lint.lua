@@ -15,7 +15,7 @@ return {
             gohtml = { 'djlint' },
             -- javascript = { 'eslint_d' },
             less = { 'stylelint' },
-            php = { 'mago_lint', 'mago_analyze', 'tlint' },
+            php = { 'mago_lint', 'tlint' },
             proto = { 'protolint' },
             python = {},
             sass = { 'stylelint' },
