@@ -94,6 +94,9 @@ return {
                 css = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
                 go = { 'golines', 'goimports', 'gofumpt' },
                 gohtml = { 'djlint' },
+                helm = function(bufnr)
+                    return { 'yamlfmt', first(bufnr, 'oxfmt', 'prettierd', 'prettier') }
+                end,
                 html = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
                 http = { 'kulala-fmt' },
                 javascript = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
