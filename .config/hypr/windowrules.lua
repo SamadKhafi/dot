@@ -58,7 +58,6 @@ hl.window_rule { border_color = 'rgb(eeeeee) rgb(cccccc)', match = { title = '^(
 hl.window_rule { no_dim = true, match = { title = '^(Calculator)$' } }
 hl.window_rule { opacity = '1.0 override 1.0 override 1.0 override', match = { title = '^(Calculator)$' } }
 
-hl.window_rule { float = true, match = { class = '^(org\\.gnome\\.Nautilus)$' } }
 hl.window_rule { float = true, match = { class = '^(org.quickshell)$' } }
 hl.window_rule { float = true, match = { title = '^(About Mozilla Firefox)$' } }
 hl.window_rule { float = true, match = { class = '^(firefox)$', title = '^(Picture-in-Picture)$' } }
