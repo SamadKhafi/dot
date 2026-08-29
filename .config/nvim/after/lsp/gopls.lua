@@ -7,6 +7,7 @@ return {
         gopls = {
             analyses = {
                 shadow = true,
+                fieldalignment = true,
                 unusedvariable = true,
                 useany = true,
                 ST1000 = false,
