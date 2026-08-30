@@ -1,3 +1,5 @@
+local go = require 'samad.utils.go'
+
 ---@param bufnr integer
 ---@param ... string
 ---@return string
@@ -57,6 +59,12 @@ return {
 
         conform.setup {
             formatters = {
+                goimports = {
+                    prepend_args = function(_, ctx)
+                        local module = go.module_name(ctx.filename)
+                        return module and { '-local', module } or {}
+                    end,
+                },
                 injected = {
                     options = {
                         ignore_errors = false,
