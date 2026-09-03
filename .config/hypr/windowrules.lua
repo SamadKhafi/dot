@@ -36,6 +36,22 @@ hl.window_rule {
     opacity = '1.0 override 0.7 override 1.0 override',
 }
 
+hl.window_rule {
+    match = { title = '^(Picture-in-picture)$' },
+
+    content = 'video',
+    float = true,
+    pin = true,
+    no_initial_focus = true,
+    size = '400 240',
+    move = 'monitor_w-408 monitor_h-300',
+    animation = 'popin',
+    border_size = 2,
+    border_color = 'rgb(eeeeee) rgb(cccccc)',
+    no_dim = true,
+    opacity = '1.0 override 1.0 override 1.0 override',
+}
+
 -- make bitwarden extension float and center
 hl.window_rule { match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' }, float = true }
 hl.window_rule { match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' }, center = true }
