@@ -94,7 +94,7 @@ return {
                 },
             },
             formatters_by_ft = {
-                astro = { 'oxfmt', 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
+                astro = { lsp_format = 'prefer' },
                 bash = { 'beautysh' },
                 blade = { 'prettierd', 'prettier', 'blade-formatter', 'tlint', stop_after_first = true },
                 c = { lsp_format = 'prefer' },
