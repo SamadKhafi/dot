@@ -8,6 +8,7 @@ local fileManager = 'nautilus'
 local calculator = 'gnome-calculator'
 local browser = 'brave-origin'
 local mailClient = 'thunderbird'
+local controlCenter = 'env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 
 local menu = 'dms ipc call spotlight toggle'
 local notepad = 'dms ipc call notepad toggle'
@@ -27,6 +28,7 @@ local mod = 'SUPER' -- SUPER / Windows key
 
 -- see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mod .. ' + COMMA', hl.dsp.exec_cmd(settings))
+hl.bind(mod .. ' + PERIOD', hl.dsp.exec_cmd(controlCenter))
 hl.bind(mod .. ' + RETURN', hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. ' + SLASH', hl.dsp.exec_cmd(notepad))
 hl.bind(mod .. ' + SPACE', hl.dsp.exec_cmd(menu))
@@ -111,10 +113,14 @@ hl.bind('XF86AudioPrev', hl.dsp.exec_cmd 'dms ipc call mpris previous', { locked
 hl.bind('XF86AudioNext', hl.dsp.exec_cmd 'dms ipc call mpris next', { locked = true })
 
 -- Laptop multimedia keys for LCD brightness
-hl.bind('XF86MonBrightnessUp', hl.dsp.exec_cmd 'dms ipc call brightness increment 5 ""', { locked = true, repeating = true })
-hl.bind('XF86MonBrightnessDown', hl.dsp.exec_cmd 'dms ipc call brightness decrement 5 ""', { locked = true, repeating = true })
-hl.bind('XF86KbdBrightnessUp', hl.dsp.exec_cmd 'dms ipc call brightness increment 1 "leds:asus::kbd_backlight"', { locked = true, repeating = true })
-hl.bind('XF86KbdBrightnessDown', hl.dsp.exec_cmd 'dms ipc call brightness decrement 1 "leds:asus::kbd_backlight"', { locked = true, repeating = true })
+hl.bind('XF86MonBrightnessUp', hl.dsp.exec_cmd 'dms ipc call brightness increment 5 ""',
+    { locked = true, repeating = true })
+hl.bind('XF86MonBrightnessDown', hl.dsp.exec_cmd 'dms ipc call brightness decrement 5 ""',
+    { locked = true, repeating = true })
+hl.bind('XF86KbdBrightnessUp', hl.dsp.exec_cmd 'dms ipc call brightness increment 1 "leds:asus::kbd_backlight"',
+    { locked = true, repeating = true })
+hl.bind('XF86KbdBrightnessDown', hl.dsp.exec_cmd 'dms ipc call brightness decrement 1 "leds:asus::kbd_backlight"',
+    { locked = true, repeating = true })
 
 -- Special keys of apps
 hl.bind('XF86Calculator', hl.dsp.exec_cmd(calculator))
