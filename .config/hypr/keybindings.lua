@@ -9,6 +9,8 @@ local calculator = 'gnome-calculator'
 local browser = 'brave-origin'
 local mailClient = 'thunderbird'
 local controlCenter = 'env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+local missionCenter = 'missioncenter'
+local networkManager = 'nm-connection-editor'
 
 local menu = 'dms ipc call spotlight toggle'
 local notepad = 'dms ipc call notepad toggle'
@@ -35,6 +37,8 @@ hl.bind(mod .. ' + SPACE', hl.dsp.exec_cmd(menu))
 hl.bind(mod .. ' + B', hl.dsp.exec_cmd(bottom))
 hl.bind(mod .. ' + M', hl.dsp.exec_cmd(processes))
 hl.bind(mod .. ' + N', hl.dsp.exec_cmd(notifications))
+hl.bind(mod .. ' + SHIFT + N', hl.dsp.exec_cmd(networkManager))
+hl.bind(mod .. ' + SHIFT + M', hl.dsp.exec_cmd(missionCenter))
 hl.bind(mod .. ' + O', hl.dsp.exec_cmd(fileManager))
 hl.bind(mod .. ' + SHIFT + P', hl.dsp.exec_cmd(powermenu))
 hl.bind(mod .. ' + V', hl.dsp.exec_cmd(clipboard))
