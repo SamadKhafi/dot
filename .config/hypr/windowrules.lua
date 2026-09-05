@@ -36,6 +36,7 @@ hl.window_rule {
     opacity = '1.0 override 0.7 override 1.0 override',
 }
 
+-- youtube picture-in-picture mode.
 hl.window_rule {
     match = { title = '^(Picture-in-picture)$' },
 
@@ -53,60 +54,70 @@ hl.window_rule {
 }
 
 -- make bitwarden extension float and center
-hl.window_rule { match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' }, float = true }
-hl.window_rule { match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' }, center = true }
-hl.window_rule { match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' }, size = '400 640' }
-hl.window_rule { match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' }, animation = 'popin' }
--- bitwarden dynamic rules
-hl.window_rule { match = { title = '^(Bitwarden)$' }, border_size = 2 }
-hl.window_rule { match = { title = '^(Bitwarden)$' }, border_color = 'rgb(eeeeee) rgb(cccccc)' }
-hl.window_rule { match = { title = '^(Bitwarden)$' }, no_dim = true }
-hl.window_rule { match = { title = '^(Bitwarden)$' }, opacity = '1.0 override 1.0 override 1.0 override' }
+hl.window_rule {
+    match = { title = '_crx_nngceckbapebfimnlniiiahkandclblb' },
 
--- make calculator float and center.
-hl.window_rule { float = true, match = { title = '^(Calculator)$' } }
-hl.window_rule { center = true, match = { title = '^(Calculator)$' } }
-hl.window_rule { size = '400 640', match = { title = '^(Calculator)$' } }
-hl.window_rule { animation = 'popin', match = { title = '^(Calculator)$' } }
--- calculator dynamic rules.
-hl.window_rule { border_size = 2, match = { title = '^(Calculator)$' } }
-hl.window_rule { border_color = 'rgb(eeeeee) rgb(cccccc)', match = { title = '^(Calculator)$' } }
-hl.window_rule { no_dim = true, match = { title = '^(Calculator)$' } }
-hl.window_rule { opacity = '1.0 override 1.0 override 1.0 override', match = { title = '^(Calculator)$' } }
+    float = true,
+    center = true,
+    size = '480 640',
+    animation = 'popin',
+}
+-- bitwarden dynamic rules
+hl.window_rule {
+    match = { title = '^(Bitwarden)$' },
+
+    border_size = 2,
+    border_color = 'rgb(eeeeee) rgb(cccccc)',
+    no_dim = true,
+    opacity = '1.0 override 1.0 override 1.0 override',
+}
+
+-- gnome calculator.
+hl.window_rule {
+    match = { title = '^(Calculator)$' },
+
+    -- make calculator float and center.
+    float = true,
+    center = true,
+    size = '400 640',
+    animation = 'popin',
+
+    -- calculator dynamic rules.
+    border_size = 2,
+    border_color = 'rgb(eeeeee) rgb(cccccc)',
+    no_dim = true,
+    opacity = '1.0 override 1.0 override 1.0 override',
+}
 
 hl.window_rule { float = true, match = { class = '^(org.quickshell)$' } }
 hl.window_rule { float = true, match = { title = '^(About Mozilla Firefox)$' } }
 hl.window_rule { float = true, match = { class = '^(firefox)$', title = '^(Picture-in-Picture)$' } }
 hl.window_rule { float = true, match = { class = '^(firefox)$', title = '^(Library)$' } }
-hl.window_rule { float = true, match = { class = '^(vlc)$' } }
 hl.window_rule { float = true, match = { class = '^(kvantummanager)$' } }
 hl.window_rule { float = true, match = { class = '^(qt5ct)$' } }
 hl.window_rule { float = true, match = { class = '^(qt6ct)$' } }
-hl.window_rule { float = true, match = { class = '^(org.pulseaudio.pavucontrol)$' } }
 hl.window_rule { float = true, match = { class = '^(blueman-manager)$' } }
 hl.window_rule { float = true, match = { class = '^(nm-applet)$' } }
 hl.window_rule { float = true, match = { class = '^(nm-connection-editor)$' } }
-hl.window_rule { float = true, match = { class = '^(io.missioncenter.MissionCenter)$' } } -- MissionCenter-Gtk
 
-hl.window_rule { float = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(top)$' } }
-hl.window_rule { float = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(btm)$' } }
-hl.window_rule { float = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(btop)$' } }
-hl.window_rule { float = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(htop)$' } }
-hl.window_rule { center = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(top)$' } }
-hl.window_rule { center = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(btm)$' } }
-hl.window_rule { center = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(btop)$' } }
-hl.window_rule { center = true, match = { class = '^(com.mitchellh.ghostty)$', title = '^(htop)$' } }
-hl.window_rule { size = '1366 768', match = { class = '^(com.mitchellh.ghostty)$', title = '^(top)$' } }
-hl.window_rule { size = '1366 768', match = { class = '^(com.mitchellh.ghostty)$', title = '^(btm)$' } }
-hl.window_rule { size = '1366 768', match = { class = '^(com.mitchellh.ghostty)$', title = '^(btop)$' } }
-hl.window_rule { size = '1366 768', match = { class = '^(com.mitchellh.ghostty)$', title = '^(htop)$' } }
+hl.window_rule {
+    match = { class = '^(com.mitchellh.ghostty)$', title = '^(top|btm|btop|htop)$' },
 
-hl.window_rule { float = true, match = { class = '^(popup.app)$' } }
-hl.window_rule { center = true, match = { class = '^(popup.app)$' } }
-hl.window_rule { size = '50% 50%', match = { class = '^(popup.app)$' } }
-hl.window_rule { pin = true, match = { class = '^(popup.app)$' } }
-hl.window_rule { stay_focused = true, match = { class = '^(popup.app)$' } }
-hl.window_rule { animation = 'popin', match = { class = '^(popup.app)$' } }
+    float = true,
+    center = true,
+    size = '1366 768',
+}
+
+hl.window_rule {
+    match = { class = '^(popup.app)$' },
+
+    float = true,
+    center = true,
+    size = '50% 50%',
+    pin = true,
+    stay_focused = true,
+    animation = 'popin',
+}
 
 -- common modals
 hl.window_rule { float = true, match = { title = '^(Open)$' } }
