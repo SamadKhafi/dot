@@ -7,7 +7,7 @@ hl.config {
         kb_layout = 'us,in',
         kb_variant = ',guj-kagapa',
         -- kb_model = '',
-        kb_options = 'grp:alt_space_toggle',
+        kb_options = 'grp:alt_space_toggle, compose:ralt',
         -- kb_rules = '',
         numlock_by_default = true,
 
