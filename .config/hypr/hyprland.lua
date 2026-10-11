@@ -40,6 +40,9 @@ hl.env('SDL_VIDEODRIVER', 'wayland')
 hl.env('CLUTTER_BACKEND', 'wayland')
 hl.env('ELECTRON_OZONE_PLATFORM_HINT', 'auto')
 
+-- NOTE: temporary workaround for blur not working on GTK 4.22 and Hyprland 56.2.
+hl.env('GDK_WAYLAND_DISABLE', 'ext_background_effect_manager_v1')
+
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
