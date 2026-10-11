@@ -6,6 +6,22 @@ return {
         'MunifTanjim/nui.nvim',
     },
     cmd = 'Neotree',
+    keys = {
+        { '<leader>e', '<cmd>Neotree toggle<CR>', desc = 'Toggle Explorer' }, -- toggle file explorer
+        { '<C-o>', '<cmd>Neotree toggle<CR>', desc = 'Toggle Explorer' }, -- toggle file explorer
+
+        {
+            '<leader>o',
+            function()
+                if vim.bo.filetype:lower() == 'neo-tree' then
+                    vim.cmd.wincmd 'p'
+                else
+                    vim.cmd.Neotree 'focus'
+                end
+            end,
+            desc = 'Focus Explorer',
+        }, -- toggle file explorer
+    },
     init = function()
         vim.g.neo_tree_remove_legacy_commands = true
     end,
@@ -156,19 +172,5 @@ return {
                 },
             },
         }
-
-        -- set keymaps
-        local map = vim.keymap.set -- for conciseness
-
-        map('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer' }) -- toggle file explorer
-        map('n', '<C-o>', '<cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer' }) -- toggle file explorer
-
-        map('n', '<leader>o', function()
-            if vim.bo.filetype:lower() == 'neo-tree' then
-                vim.cmd.wincmd 'p'
-            else
-                vim.cmd.Neotree 'focus'
-            end
-        end, { desc = 'Focus Explorer' }) -- toggle file explorer
     end,
 }
